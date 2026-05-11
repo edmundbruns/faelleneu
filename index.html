@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fallarbeit Schulsozialarbeit Niedersachsen</title>
+<style>
+:root{--bg:#f6f2ea;--text:#111;--primary:#2f6f6d;--dark:#244f4e;--soft:#e8f1ef;--accent:#d9a441;--border:#d9dedc;--danger:#8a3b3b;--ok:#1d6b43}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+header{background:linear-gradient(135deg,var(--primary),var(--dark));color:white;padding:44px 20px}.head{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+h1{font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin:0 0 14px}.badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;font-weight:800;margin-bottom:16px}.hero{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);border-radius:22px;padding:22px}
+main{max-width:1180px;margin:auto;padding:28px 20px 70px}.card{background:white;border:1px solid var(--border);border-radius:22px;padding:clamp(18px,4vw,28px);margin-bottom:24px;box-shadow:0 10px 28px rgba(38,50,56,.08)}.kicker{color:var(--primary);font-size:.85rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}.casebtn{background:var(--primary);color:white;border:0;border-radius:16px;padding:18px;text-align:left;font-weight:850;cursor:pointer;font-size:.98rem}.casebtn:hover{background:var(--dark)}
+button{border:0;background:var(--primary);color:white;padding:11px 15px;border-radius:12px;cursor:pointer;font-weight:800;margin:4px 6px 4px 0}button.secondary,.tab{background:var(--soft);color:var(--dark)}.tab.active{background:var(--primary);color:white}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.info{background:#f8fbfa;border-left:5px solid var(--primary);border-radius:14px;padding:16px;margin:16px 0}.progress{background:white;border:1px solid #c9ded9;border-radius:16px;padding:14px;margin:16px 0}.bar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin-top:10px}.fill{height:100%;width:0%;background:var(--primary)}
+.bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 20px}.drag{background:var(--soft);border:2px solid #c9ded9;border-radius:14px;padding:12px;cursor:grab;font-weight:750;touch-action:none}.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.zone{min-height:150px;background:#f8fbfa;border:2px dashed #9bbeb8;border-radius:16px;padding:12px}.zone.over{background:#fff9e8;border-color:var(--accent)}.zone .drag{background:white;margin-bottom:8px}
+.feedback{display:none;background:#fff9e8;border-left:5px solid var(--accent);border-radius:14px;padding:16px;margin-top:16px}.visible{display:block}.ok{color:var(--ok);font-weight:900}.bad{color:var(--danger);font-weight:900}textarea,select{width:100%;border:1px solid var(--border);border-radius:14px;padding:12px;font:inherit;background:white;min-height:110px}.stategrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}.state{background:#f8fbfa;border:1px solid #c9ded9;border-radius:14px;padding:12px;text-align:center}.state b{font-size:1.5rem;color:var(--primary)}details{margin-top:12px}summary{font-weight:850;cursor:pointer}footer{background:#203536;color:#d9eeee;padding:26px 20px}footer div{max-width:1180px;margin:auto}@media(max-width:800px){.head{grid-template-columns:1fr}main{padding:20px 14px 54px}header{padding:34px 18px}}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+textarea {
+  margin-bottom: 10px;
+}
+
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.theory-card {
+  background: #f8fbfa;
+  border: 1px solid #c9ded9;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.theory-card h3 {
+  margin-top: 0;
+}
+
+
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  border-bottom: 1px solid #d9dedc;
+  padding: 10px;
+  text-align: left;
+}
+
+.portfolio-bar-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 40px;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.portfolio-bar {
+  height: 14px;
+  background: #e8f1ef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.portfolio-fill {
+  height: 100%;
+  background: #2f6f6d;
+}
+
+@media(max-width:700px){
+  .portfolio-bar-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.source-url {
+  display: inline-block;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92rem;
+  background: #f8fbfa;
+  border: 1px solid #d9dedc;
+  border-radius: 8px;
+  padding: 2px 6px;
+}
+#quellen li {
+  margin-bottom: 10px;
+}
+
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: #000000;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.casebtn:focus-visible,
+.tab:focus-visible,
+summary:focus-visible {
+  outline: 4px solid #ffbf00 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(255,191,0,0.25) !important;
+}
+
+[tabindex="0"]:focus-visible {
+  outline: 4px solid #ffbf00 !important;
+  outline-offset: 3px !important;
+}
+
+.a11y-panel {
+  background: #ffffff;
+  border: 2px solid #244f4e;
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0;
+}
+
+.a11y-panel ul {
+  margin-bottom: 0;
+}
+
+.contrast-pass {
+  color: #0f5132;
+  font-weight: 800;
+}
+
+.contrast-warn {
+  color: #842029;
+  font-weight: 800;
+}
+
+.high-contrast body,
+body.high-contrast {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.high-contrast .card,
+body.high-contrast .info,
+body.high-contrast .state,
+body.high-contrast textarea,
+body.high-contrast select {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+body.high-contrast button,
+body.high-contrast .casebtn,
+body.high-contrast .tab.active {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+body.high-contrast .tab,
+body.high-contrast button.secondary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+details {
+  background: #ffffff;
+  border: 1px solid #d9dedc;
+  border-radius: 14px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+details summary {
+  font-weight: 850;
+  color: #244f4e;
+}
+
+
+.rubric-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.rubric-table td {
+  vertical-align:top;
+}
+
+</style></head><body>
+<a href="#mainContent" class="skip-link">Zum Hauptinhalt springen</a>
+<header><div class="head"><div><div class="badge">Fallarbeit · Schulsozialarbeit · Niedersachsen</div><h1>Digitale Lernumgebung für Fallarbeit</h1><p>Dynamische Fallverläufe, Drag-and-Drop-Fallanalyse, Theorieintegration, Niedersachsenbezug, Dokumentation, Evaluation und reflektiertes Feedback.</p></div><div class="hero"><b>Leitfrage</b><p>Wie analysieren, begründen und dokumentieren Sie Fallarbeit professionell?</p></div></div></header>
+<main id="mainContent" role="main"><section id="overview" class="card" aria-labelledby="overviewTitle"><div class="kicker">Fallbibliothek</div><h2 id="overviewTitle">Wählen Sie einen Fall</h2><p>Jeder Fall enthält Fallvignette, Drag-and-Drop, adaptive Entscheidungen, Theorie, Dokumentation, Evaluation und Reflexion.</p>
+<div class="a11y-panel" aria-labelledby="a11yTitle">
+  <h3 id="a11yTitle">Barrierefreiheit</h3>
+  <ul>
+    <li>Die Fallauswahl und Reiter sind per Tastatur bedienbar.</li>
+    <li>Mit Tab springen Sie durch die Elemente. In der Reiterleiste nutzen Sie zusätzlich Pfeiltasten.</li>
+    <li>Der gelbe Fokusrahmen zeigt sichtbar, welches Element aktiv ist.</li>
+    <li>Die Seite berücksichtigt reduzierte Bewegung, sofern diese im Betriebssystem eingestellt ist.</li>
+  </ul>
+  <button type="button" id="contrastBtn">Kontrastmodus ein-/ausschalten</button>
+  <button type="button" id="contrastCheckBtn" class="secondary">Kontrastprüfung anzeigen</button>
+  <div id="contrastResult" class="feedback" aria-live="polite"></div>
+</div>
+<div id="caseGrid" class="grid"></div></section>
+<section id="app" class="hidden" aria-live="polite"><div class="card"><button type="button" class="secondary" id="backBtn">← Zurück zur Fallbibliothek</button><button type="button" id="randomBtn">Zufallsfall</button><div class="progress"><strong id="progressText">0 von 7 Aufgaben bearbeitet</strong><div class="bar"><div id="progressFill" class="fill"></div></div></div><div class="tabs" id="tabs" role="tablist" aria-label="Arbeitsbereiche"></div><div id="caseTitle"></div></div><div id="content" class="card"></div></section>
+<section class="card"><div class="kicker">Rechtlicher Hinweis</div><h2>Hinweis zur Nutzung</h2><p>Diese Lernumgebung dient ausschließlich Studien- und Lernzwecken. Keine Gewähr für Richtigkeit, Vollständigkeit, Aktualität oder rechtliche Verbindlichkeit.</p></section>
+<section class="card" id="quellen">
+  <div class="kicker">Quellen und Vertiefung</div>
+  <h2>Rechtsgrundlagen, Niedersachsen und Fachliteratur</h2>
+
+  <div class="info">
+    <strong>Hinweis:</strong><br>
+    Die folgenden Angaben dienen der Orientierung und Vertiefung. Für Hausarbeiten,
+    Prüfungsleistungen und rechtliche Bewertungen sind die jeweils aktuellen Fassungen
+    der Primärquellen zu prüfen.
+  </div>
+
+  <h3>SGB VIII · Kinder- und Jugendhilfe</h3>
+  <ul>
+    <li>
+      <strong>SGB VIII, insbesondere § 8a, § 13 und § 13a.</strong><br>
+      § 13a SGB VIII benennt Schulsozialarbeit ausdrücklich als sozialpädagogisches Angebot
+      am Ort Schule. § 8a ist für Schutzauftrag und Kindeswohlgefährdung relevant.
+    </li>
+    <li>
+      <strong>Primärquelle:</strong> Bundesministerium der Justiz, Gesetze im Internet:
+      <span class="source-url">https://www.gesetze-im-internet.de/sgb_8/</span>
+    </li>
+  </ul>
+
+  <h3>NSchG · Niedersächsisches Schulgesetz</h3>
+  <ul>
+    <li>
+      <strong>Niedersächsisches Schulgesetz (NSchG).</strong><br>
+      Schulrechtlicher Rahmen für öffentliche Schulen und Schulen in freier Trägerschaft
+      in Niedersachsen. Für Fallarbeit relevant sind insbesondere Bildungsauftrag,
+      schulische Verantwortung, Kooperation und institutionelle Zuständigkeiten.
+    </li>
+    <li>
+      <strong>Primärquelle:</strong> Niedersächsisches Vorschrifteninformationssystem NI-VORIS:
+      <span class="source-url">https://voris.wolterskluwer-online.de</span>
+    </li>
+  </ul>
+
+  <h3>MK Niedersachsen · Soziale Arbeit in schulischer Verantwortung</h3>
+  <ul>
+    <li>
+      <strong>Erlass „Soziale Arbeit in schulischer Verantwortung“.</strong><br>
+      Der Erlass ist seit dem 01.08.2017 in Kraft und bildet die Grundlage für die Arbeit
+      sozialpädagogischer Fachkräfte im Landesdienst.
+    </li>
+    <li>
+      <strong>Bezugspunkt:</strong> Der Erlass bezieht die soziale Arbeit in schulischer Verantwortung
+      auf den allgemeinen Bildungsauftrag nach § 2 NSchG.
+    </li>
+    <li>
+      <strong>MK Niedersachsen:</strong>
+      <span class="source-url">https://www.mk.niedersachsen.de</span>
+    </li>
+    <li>
+      <strong>Bildungsportal Niedersachsen:</strong> Informationen zu sozialer Arbeit an Schule
+      und Landesverantwortung.
+    </li>
+  </ul>
+
+  <h3>Kommunale Jugendhilfeplanung</h3>
+  <ul>
+    <li>
+      Kommunale Jugendhilfeplanung ist für lokale Bedarfslagen, Trägerstrukturen,
+      Kooperationswege, Prävention, Kinderschutz und Qualitätsentwicklung relevant.
+    </li>
+    <li>
+      Für konkrete Arbeiten sollte jeweils die Jugendhilfeplanung des zuständigen
+      Landkreises oder der kreisfreien Stadt geprüft werden.
+    </li>
+  </ul>
+
+  <h3>Fachliteratur · Schulsozialarbeit und Soziale Arbeit</h3>
+  <ul>
+    <li>
+      <strong>Speck, Karsten:</strong> Schulsozialarbeit. Eine Einführung.
+      Ernst Reinhardt / UTB. 5. Auflage 2022.
+      ISBN Print: 978-3-8252-5870-2.
+    </li>
+    <li>
+      <strong>Thiersch, Hans:</strong> Lebensweltorientierte Soziale Arbeit.
+      Grundlagen für die lebensweltorientierte Perspektive in der Sozialen Arbeit.
+    </li>
+    <li>
+      <strong>Deinet, Ulrich:</strong> Sozialraumorientierung in der Kinder- und Jugendarbeit.
+      Grundlage für sozialräumliche Analyse und Netzwerkperspektiven.
+    </li>
+    <li>
+      <strong>Staub-Bernasconi, Silvia:</strong> Soziale Arbeit als Handlungswissenschaft.
+      Relevant für professionstheoretische und handlungswissenschaftliche Begründung.
+    </li>
+    <li>
+      <strong>Heiner, Maja:</strong> Professionalität in der Sozialen Arbeit.
+      Relevant für Rollenklärung, professionelles Handeln und Reflexion.
+    </li>
+    <li>
+      <strong>Honneth, Axel:</strong> Kampf um Anerkennung.
+      Relevant für Anerkennung, Missachtung, Beschämung und Teilhabe.
+    </li>
+  </ul>
+
+  <h3>Datenschutz, Ethik und Kinderschutz</h3>
+  <ul>
+    <li>DSGVO und niedersächsische Datenschutzregelungen in der jeweils aktuellen Fassung prüfen.</li>
+    <li>Trägerinterne Datenschutz- und Dokumentationsvorgaben beachten.</li>
+    <li>Bei § 8a SGB VIII Verfahrensstandards, Beratung durch insoweit erfahrene Fachkraft und lokale Kinderschutzvereinbarungen prüfen.</li>
+    <li>Schweigepflicht, Einwilligung, Zweckbindung und Schutzauftrag sind fallbezogen abzuwägen.</li>
+  </ul>
+
+  <h3>Für wissenschaftliche Arbeiten prüfen</h3>
+  <ul>
+    <li>aktuelle Gesetzesfassungen</li>
+    <li>amtliche Erlasse und Verwaltungsvorschriften</li>
+    <li>kommunale Konzepte und Jugendhilfeplanung</li>
+    <li>aktuelle Fachliteratur und empirische Studien</li>
+    <li>hochschulische Vorgaben zur Zitierweise</li>
+  </ul>
+</section>
+</main><footer><div><strong>Fallarbeit · Schulsozialarbeit · Niedersachsen</strong><p>Lernumgebung für Studium und Selbstüberprüfung.</p></div></footer>
+<script>
+const cases = {"ali": {"area": "Schulabsentismus", "name": "Ali", "vignette": "Ali fehlt häufig, wirkt müde und kommt manchmal ohne Frühstück. Die Klassenlehrkraft berichtet, dass sie grundsätzlich einen guten Zugang zu Ali hat.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["Ali fehlt häufig", "Beobachtung", "Häufiges Fehlen ist zunächst eine beobachtbare Information."], ["familiäre Belastung möglich", "Hypothese", "Das ist eine plausible, aber zu prüfende Deutung."], ["Risiko Schulabsentismus", "Risiko", "Wiederholte Fehlzeiten können ein Risiko anzeigen."], ["Klassenlehrkraft hat guten Zugang", "Ressource", "Ein guter Zugang ist eine Ressource."], ["Gespräch mit Ali vorbereiten", "nächster Schritt", "Ein niedrigschwelliges Gespräch ist fachlich plausibel."]]}, "lea": {"area": "Kindeswohl", "name": "Lea", "vignette": "Lea kommt wiederholt ungepflegt zur Schule, wirkt hungrig und schläft im Unterricht ein. Gleichzeitig sucht Lea aktiv Kontakt zur Schulsozialarbeit.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Schutzfaktor", "nächster Schritt"], "cards": [["Lea wirkt hungrig", "Beobachtung", "Das ist beobachtbar, die Ursache ist offen."], ["mögliche Vernachlässigung", "Hypothese", "Zu prüfen, keine Tatsache."], ["Anhaltspunkte für Kindeswohlgefährdung möglich", "Risiko", "Mehrere Hinweise können ein Risiko anzeigen."], ["Lea sucht Kontakt", "Schutzfaktor", "Kontaktbereitschaft ist ein Schutzfaktor."], ["insoweit erfahrene Fachkraft prüfen", "nächster Schritt", "Bei gewichtigen Anhaltspunkten relevant."]]}, "can": {"area": "Gewalt", "name": "Can", "vignette": "Can gerät wiederholt in körperliche Auseinandersetzungen. Mehrere Schüler berichten von Provokationen. Eine Lehrkraft erlebt Can im Unterricht kooperativ.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["körperliche Auseinandersetzungen", "Beobachtung", "Konkrete Meldung."], ["Provokation möglich", "Hypothese", "Zu prüfen."], ["Eskalationsrisiko", "Risiko", "Wiederholte Gewalt zeigt Risiko."], ["Lehrkraft erlebt Can kooperativ", "Ressource", "Positive Beziehung nutzbar."], ["Beteiligte getrennt anhören", "nächster Schritt", "Reduziert Gruppendruck."]]}, "sophie": {"area": "Cybermobbing", "name": "Sophie", "vignette": "Sophie berichtet weinend, dass bearbeitete Bilder von ihr in einer Klassengruppe geteilt wurden. Sie möchte nicht, dass ihre Eltern sofort informiert werden.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["bearbeitete Bilder geteilt", "Beobachtung", "Konkrete Information."], ["Cybermobbing möglich", "Hypothese", "Naheliegend, aber zu prüfen."], ["Risiko weiterer Verbreitung", "Risiko", "Digitale Inhalte verbreiten sich schnell."], ["Sophie sucht Hilfe", "Ressource", "Kontaktaufnahme ist Ressource."], ["Schutz und Beweise klären", "nächster Schritt", "Datenschutzsensibel vorgehen."]]}, "jonas": {"area": "psychische Belastung", "name": "Jonas", "vignette": "Jonas zieht sich zurück, wirkt traurig und müde. Eine Lehrkraft bemerkt Kratzspuren am Arm.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["Rückzug", "Beobachtung", "Beobachtbares Verhalten."], ["psychische Belastung möglich", "Hypothese", "Zu klären."], ["mögliche Selbstverletzung", "Risiko", "Ernst zu nehmen."], ["früheres Interesse am Schulchor", "Ressource", "Anknüpfungspunkt."], ["Gefährdung einschätzen", "nächster Schritt", "Zeitnah und fachlich."]]}, "mira": {"area": "Elternkonflikte", "name": "Mira", "vignette": "Mira berichtet von häufigem Streit der Eltern. Beide Elternteile schreiben widersprüchliche Nachrichten an die Schule.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["Mira berichtet von Streit", "Beobachtung", "Berichtete Information."], ["Loyalitätskonflikt möglich", "Risiko", "Kann Belastung erzeugen."], ["Mira ist leistungsstark", "Ressource", "Stabilitätsfaktor."], ["keine Parteinahme", "nächster Schritt", "Professionelle Neutralität."], ["Kommunikationswege klären", "nächster Schritt", "Struktur schützt Mira."]]}, "ben": {"area": "Inklusion", "name": "Ben", "vignette": "Ben nimmt selten an Gruppenarbeiten teil. Er sagt, er verstehe Aufgaben oft nicht schnell genug. Die Klassenlehrkraft ist offen für Unterstützung.", "columns": ["Beobachtung", "Hypothese", "Barriere", "Ressource", "nächster Schritt"], "cards": [["seltene Teilnahme an Gruppenarbeit", "Beobachtung", "Beteiligungssituation."], ["Überforderung möglich", "Hypothese", "Zu prüfen."], ["Aufgabenformat als Barriere", "Barriere", "Institutionelle Perspektive."], ["offene Klassenlehrkraft", "Ressource", "Kooperationschance."], ["Barrieren analysieren", "nächster Schritt", "Inklusionsperspektive."]]}, "aylin": {"area": "Armut und Teilhabe", "name": "Aylin", "vignette": "Aylin nimmt nicht an Ausflügen teil und hat häufig kein Material dabei. Sie vermeidet Gespräche über Geld.", "columns": ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"], "cards": [["keine Teilnahme an Ausflügen", "Beobachtung", "Beobachtbar."], ["finanzielle Belastung möglich", "Hypothese", "Sensibel zu prüfen."], ["Risiko sozialer Ausgrenzung", "Risiko", "Teilhabe gefährdet."], ["Freundin unterstützt", "Ressource", "Peer-Ressource."], ["diskrete Unterstützung prüfen", "nächster Schritt", "Beschämung vermeiden."]]}, "omar": {"area": "Migration und Sprache", "name": "Omar", "vignette": "Omar ist neu an der Schule, spricht wenig Deutsch und sitzt häufig allein. In Mathematik zeigt er gute Leistungen.", "columns": ["Beobachtung", "Hypothese", "Barriere", "Ressource", "nächster Schritt"], "cards": [["spricht wenig Deutsch", "Beobachtung", "Nicht mit fehlender Kompetenz verwechseln."], ["sitzt häufig allein", "Beobachtung", "Soziale Situation."], ["Sprachbarriere", "Barriere", "Teilhabebarriere."], ["gute Mathematikleistungen", "Ressource", "Stärke."], ["Dolmetschmöglichkeit prüfen", "nächster Schritt", "Beteiligung ermöglichen."]]}, "leon": {"area": "Krisenintervention", "name": "Leon", "vignette": "Leon verlässt nach einem Streit abrupt den Unterricht. Ein Mitschüler berichtet, Leon habe gesagt: „Ich kann nicht mehr.“", "columns": ["Beobachtung", "Hypothese", "akutes Risiko", "Schutzfaktor", "nächster Schritt"], "cards": [["verlässt abrupt den Unterricht", "Beobachtung", "Konkretes Ereignis."], ["Aussage: Ich kann nicht mehr", "Beobachtung", "Ernst nehmen."], ["akute Überforderung möglich", "Hypothese", "Zu prüfen."], ["mögliche Selbstgefährdung", "akutes Risiko", "Zeitkritisch."], ["Notfallwege prüfen", "nächster Schritt", "Bei akuter Krise notwendig."]]}};
+const multi = {"ali": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "lea": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "can": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "sophie": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "jonas": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "mira": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "ben": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "aylin": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "omar": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}, "leon": {"state": {"Vertrauen": 2, "Risiko": 2, "Kooperation": 2, "Eskalation": 1}, "phases": [{"title": "Phase 1 · Erstes professionelles Handeln", "text": "Sie erhalten erste Hinweise und müssen entscheiden, wie Sie fachlich beginnen.", "choices": [["kontrollierend", "Sie reagieren stark kontrollierend und machen Druck.", {"Vertrauen": -2, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Der Kontakt wird schwieriger. Die Situation kann sich verhärten.", "Kontrolle kann nötig sein, ersetzt aber nicht Fallverstehen und Beziehung."], ["ressourcenorientiert", "Sie beginnen ruhig, klären Beobachtungen und suchen Zugang.", {"Vertrauen": 2, "Risiko": -1, "Kooperation": 1, "Eskalation": -1}, "Die Gesprächsbereitschaft steigt. Weitere Informationen werden zugänglich.", "Fachlich tragfähig: Beziehung, Klärung und Ressourcen werden verbunden."], ["vorschnell eskalierend", "Sie leiten sofort weitreichende Schritte ein.", {"Vertrauen": -1, "Risiko": 0, "Kooperation": -2, "Eskalation": 2}, "Beteiligte reagieren defensiv. Die Kooperation sinkt.", "Zu früh: Verfahren und Einschätzung müssen sauber begründet werden."]]}, {"title": "Phase 2 · Kooperation und Struktur", "text": "Weitere Informationen werden sichtbar. Schule, Familie oder Peers haben unterschiedliche Erwartungen.", "choices": [["allein lösen", "Sie versuchen, den Fall ohne Abstimmung allein zu bearbeiten.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -2, "Eskalation": 1}, "Zuständigkeiten verschwimmen. Unterstützung bleibt instabil.", "Professionelle Fallarbeit braucht Rollenklärung."], ["kooperativ strukturieren", "Sie klären Rollen, Datenschutz und nächste Schritte.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Fallarbeit wird nachvollziehbarer und tragfähiger.", "Stark: Kooperation, Dokumentation und Datenschutz werden verbunden."], ["bagatellisieren", "Sie warten ab und hoffen, dass sich die Situation beruhigt.", {"Vertrauen": -1, "Risiko": 2, "Kooperation": 0, "Eskalation": 1}, "Risiken bleiben unbearbeitet.", "Zu passiv: Hinweise müssen fachlich geprüft werden."]]}, {"title": "Phase 3 · Niedersachsenbezug und Weiterarbeit", "text": "Es muss geklärt werden, welche Verantwortung Schule, Jugendhilfe, Kommune oder freie Träger haben.", "choices": [["niedersachsenbezogen vernetzen", "Sie prüfen Schule, Jugendhilfe, Kommune, Trägerstruktur und Dokumentationsanforderungen.", {"Vertrauen": 1, "Risiko": -1, "Kooperation": 2, "Eskalation": -1}, "Die Weiterarbeit wird strukturiert und fachlich anschlussfähig.", "Sehr tragfähig: Niedersachsenbezug und Schnittstellenlogik werden sichtbar."], ["nur schulisch lösen", "Sie betrachten ausschließlich die Schule als zuständig.", {"Vertrauen": 0, "Risiko": 1, "Kooperation": -1, "Eskalation": 0}, "Mögliche Jugendhilfe- und Sozialraumressourcen bleiben ungenutzt.", "Zu eng: Schulsozialarbeit ist Schnittstellenarbeit."], ["unklar dokumentieren", "Sie dokumentieren vor allem persönliche Einschätzungen.", {"Vertrauen": -1, "Risiko": 1, "Kooperation": -1, "Eskalation": 1}, "Die Fallbearbeitung wird schwer nachvollziehbar.", "Fachlich schwach: Dokumentation muss sachlich und überprüfbar sein."]]}]}};
+const tabs = ["Fall","Drag-and-Drop","Dynamischer Verlauf","Mehrphasenfall","Theorie","Dokumentation","Datenschutz/Ethik","Evaluation","Reflexion","Wiederholung","Bewertungsraster","Lehrendenmodus","Portfolio"];
+let current=null,currentTab="Fall",done=new Set(),dragged=null,state=null,phase=0;
+const $=id=>document.getElementById(id);
+function init(){
+  $("caseGrid").innerHTML=Object.entries(cases).map(([k,c])=>`<button class="casebtn" data-case="${k}" aria-label="Fall ${c.name}, Bereich ${c.area}, öffnen"><span>${c.area}</span><br><strong>${c.name}</strong><br><small>${c.vignette.slice(0,95)}...</small></button>`).join("");
+  document.querySelectorAll("[data-case]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.case)));
+  $("backBtn").setAttribute("aria-label","Zurück zur Fallbibliothek");
+  $("randomBtn").setAttribute("aria-label","Zufälligen Fall öffnen");
+  $("backBtn").onclick=back;
+  $("randomBtn").onclick=randomCase;
+}
+function openCase(k){current=k;currentTab="Fall";done=new Set();$("overview").classList.add("hidden");$("app").classList.remove("hidden");renderTabs();render();updateProgress();window.scrollTo({top:0,behavior:"smooth"});}
+function back(){$("app").classList.add("hidden");$("overview").classList.remove("hidden");}
+function randomCase(){const ks=Object.keys(cases);openCase(ks[Math.floor(Math.random()*ks.length)]);}
+function renderTabs(){
+  $("tabs").innerHTML=tabs.map(t=>`<button class="tab ${t===currentTab?"active":""}" role="tab" aria-selected="${t===currentTab}" data-tab="${t}">${t}</button>`).join("");
+  const tabButtons = [...document.querySelectorAll("[data-tab]")];
+
+  tabButtons.forEach((b, index)=>{
+    b.onclick=()=>{currentTab=b.dataset.tab;renderTabs();render();};
+
+    b.onkeydown=(e)=>{
+      if(e.key==="ArrowRight"){
+        e.preventDefault();
+        const next = tabButtons[(index+1)%tabButtons.length];
+        next.focus();
+      }
+      if(e.key==="ArrowLeft"){
+        e.preventDefault();
+        const prev = tabButtons[(index-1+tabButtons.length)%tabButtons.length];
+        prev.focus();
+      }
+      if(e.key==="Enter" || e.key===" "){
+        e.preventDefault();
+        currentTab=b.dataset.tab;
+        renderTabs();
+        render();
+      }
+    };
+  });
+}
+function updateProgress(){let n=done.size,total=7;$("progressText").textContent=`${n} von ${total} Aufgaben bearbeitet`;$("progressFill").style.width=Math.round(n/total*100)+"%";}
+function mark(x){done.add(x);updateProgress();recordPortfolioEvent("task",{task:x});}
+function render(){const c=cases[current];$("caseTitle").innerHTML=`<div class="kicker">${c.area}</div><h2>${c.name}</h2>`; if(currentTab==="Fall")renderFall(); if(currentTab==="Drag-and-Drop")renderDrag(); if(currentTab==="Dynamischer Verlauf")renderAdaptive(); if(currentTab==="Mehrphasenfall")renderMultiStart(); if(currentTab==="Theorie")renderTheory(); if(currentTab==="Dokumentation")renderDoc(); if(currentTab==="Datenschutz/Ethik")renderPrivacyEthics(); if(currentTab==="Evaluation")renderEval(); if(currentTab==="Reflexion")renderRefl(); if(currentTab==="Wiederholung")renderReviewMode(); if(currentTab==="Bewertungsraster")renderAssessmentRubric(); if(currentTab==="Lehrendenmodus")renderTeacherMode(); if(currentTab==="Portfolio")renderPortfolio();}
+
+const richCaseMaterial = {
+  ali: {
+    longVignette: `
+      Ali besucht die 7. Klasse einer Oberschule in Niedersachsen. Seit etwa sechs Wochen fehlen einzelne Unterrichtstage,
+      zunächst montags, später auch unregelmäßig an anderen Tagen. Wenn Ali anwesend ist, wirkt er müde,
+      beteiligt sich wenig und zieht sich in Pausen eher zurück. Die Klassenlehrkraft beschreibt Ali als grundsätzlich
+      freundlich, aber schwer erreichbar. Gleichzeitig berichtet sie, dass sie früher einen guten Zugang zu ihm hatte.
+      In der Klasse wird gemunkelt, Ali habe „einfach keine Lust mehr auf Schule“. Eine Mitschülerin erwähnt dagegen,
+      dass Ali morgens häufig sehr spät loskomme und manchmal ohne Frühstück erscheine.
+    `,
+    phases: [
+      {
+        title: "Informationsphase 1 · Erstmeldung",
+        text: "Die Klassenlehrkraft meldet wiederholte Fehlzeiten und zunehmende Müdigkeit. Noch unklar ist, ob es sich um Vermeidung, familiäre Belastung, gesundheitliche Gründe oder schulische Konflikte handelt."
+      },
+      {
+        title: "Informationsphase 2 · Schülerperspektive",
+        text: "Ali sagt in einem kurzen Gespräch: „Morgens ist es zuhause meistens stressig.“ Auf Nachfrage weicht er aus. Er möchte nicht, dass sofort zuhause angerufen wird."
+      },
+      {
+        title: "Informationsphase 3 · Institutioneller Druck",
+        text: "Die Schulleitung bittet um eine schnelle Einschätzung. Die Klassenlehrkraft wünscht klare Konsequenzen, weil die Fehlzeiten den Anschluss gefährden."
+      }
+    ],
+    documents: [
+      {
+        type: "E-Mail der Klassenlehrkraft",
+        content: "Ali fehlt erneut. Ich mache mir Sorgen, aber so kann es nicht weitergehen. Vielleicht braucht es jetzt eine klare Ansage."
+      },
+      {
+        type: "Gesprächsnotiz Schulsozialarbeit",
+        content: "Ali wirkt im Gespräch erschöpft. Er spricht von Stress am Morgen, möchte aber keine Details nennen. Kontaktaufnahme behutsam fortsetzen."
+      },
+      {
+        type: "Klassenbucheintrag",
+        content: "Fehlzeiten: Montag, Mittwoch, Folgewoche Dienstag. Mehrfach verspätet. Hausaufgaben unvollständig."
+      }
+    ],
+    contradictions: [
+      "Lehrkraft beschreibt Ali als grundsätzlich kooperativ, gleichzeitig als zunehmend unerreichbar.",
+      "Die Klasse deutet Unlust, einzelne Hinweise sprechen eher für familiäre oder alltagsbezogene Belastungen.",
+      "Schule fordert schnelle Konsequenzen, fachlich braucht es zunächst Klärung."
+    ]
+  },
+
+  lea: {
+    longVignette: `
+      Lea besucht die 4. Klasse einer Grundschule. Mehrere Lehrkräfte berichten, dass sie in letzter Zeit häufig müde wirkt
+      und teilweise ungewaschene Kleidung trägt. Eine pädagogische Mitarbeiterin im Ganztag beobachtet, dass Lea beim Mittagessen
+      sehr hastig isst. Eine Mitschülerin sagt, Lea sei „oft allein zuhause“. Gleichzeitig sucht Lea aktiv Nähe zu vertrauten
+      Erwachsenen in der Schule und beteiligt sich gerne an Bastelangeboten. Es liegen noch keine gesicherten Informationen
+      zur familiären Situation vor.
+    `,
+    phases: [
+      {
+        title: "Informationsphase 1 · Beobachtungen",
+        text: "Müdigkeit, Hunger und ungepflegte Kleidung werden wiederholt beschrieben. Noch ist offen, welche Ursachen vorliegen."
+      },
+      {
+        title: "Informationsphase 2 · Hinweis aus Peer-Kontext",
+        text: "Eine Mitschülerin sagt, Lea sei oft allein zuhause. Die Aussage ist relevant, aber nicht verifiziert."
+      },
+      {
+        title: "Informationsphase 3 · Schutzauftrag",
+        text: "Im Team entsteht die Frage, ob gewichtige Anhaltspunkte für eine Kindeswohlgefährdung vorliegen und wie § 8a-Verfahren einzubeziehen sind."
+      }
+    ],
+    documents: [
+      {
+        type: "Ganztagsnotiz",
+        content: "Lea isst auffällig schnell und fragt nach Nachschlag. Sie wirkt danach ruhiger."
+      },
+      {
+        type: "Lehrkraftmeldung",
+        content: "Lea schläft im Unterricht fast ein. Kleidung wirkt seit mehreren Tagen ungepflegt."
+      },
+      {
+        type: "Gesprächsnotiz",
+        content: "Lea sagt: „Mama schläft morgens manchmal noch.“ Danach wechselt sie das Thema."
+      }
+    ],
+    contradictions: [
+      "Mehrere Hinweise wirken belastend, gleichzeitig sucht Lea aktiv Kontakt und zeigt Ressourcen.",
+      "Peer-Aussagen sind relevant, aber keine gesicherten Tatsachen.",
+      "Schnelles Handeln ist wichtig, vorschnelle Diagnosen sind dennoch zu vermeiden."
+    ]
+  },
+
+  sophie: {
+    longVignette: `
+      Sophie kommt weinend zur Schulsozialarbeit und berichtet, dass bearbeitete Bilder von ihr in einer Klassengruppe geteilt wurden.
+      Einige Mitschülerinnen hätten gelacht, andere hätten nichts gesagt. Sophie bittet ausdrücklich darum, dass ihre Eltern nicht sofort
+      informiert werden. Sie befürchtet, dass ihr Handy weggenommen wird. Gleichzeitig sagt sie, die Bilder würden „immer weiter“ geteilt.
+      Die Klassenlehrkraft hat bislang nur gehört, dass es Streit in einer Chatgruppe gebe.
+    `,
+    phases: [
+      {
+        title: "Informationsphase 1 · Erstbericht",
+        text: "Sophie berichtet von digital verbreiteten Bildern und starker Beschämung. Die digitale Reichweite ist noch unklar."
+      },
+      {
+        title: "Informationsphase 2 · Datenschutz und Beweissicherung",
+        text: "Es stellt sich die Frage, wie Screenshots, Beteiligung und Informationsweitergabe datenschutzsensibel gehandhabt werden."
+      },
+      {
+        title: "Informationsphase 3 · Klassendynamik",
+        text: "Einige Beteiligte lachen, andere schweigen. Es ist unklar, wer aktiv verbreitet und wer Mitläufer ist."
+      }
+    ],
+    documents: [
+      {
+        type: "Chat-Hinweis",
+        content: "Sophie berichtet, dass ein bearbeitetes Bild in einer Klassengruppe mehrfach kommentiert wurde."
+      },
+      {
+        type: "Gesprächsnotiz",
+        content: "Sophie möchte Kontrolle über nächste Schritte behalten. Sie fürchtet elterliche Sanktionen."
+      },
+      {
+        type: "E-Mail Klassenlehrkraft",
+        content: "Ich habe nur gehört, dass es Stress im Klassenchat gibt. Mir liegen keine Screenshots vor."
+      }
+    ],
+    contradictions: [
+      "Sophie möchte Vertraulichkeit, gleichzeitig besteht ein Schutzinteresse.",
+      "Digitale Beweise können wichtig sein, müssen aber datenschutzsensibel behandelt werden.",
+      "Die Klasse muss bearbeitet werden, ohne Sophie erneut bloßzustellen."
+    ]
+  },
+
+  leon: {
+    longVignette: `
+      Leon verlässt nach einem Streit abrupt den Unterricht. Ein Mitschüler berichtet, Leon habe gesagt: „Ich kann nicht mehr.“
+      Leon ist telefonisch zunächst nicht erreichbar. Die Schulsekretärin weiß, dass sein älterer Bruder manchmal Kontakt zu ihm bekommt.
+      Die Klassenlehrkraft beschreibt Leon als impulsiv, aber bisher nicht als dauerhaft auffällig. Es ist unklar, ob eine akute Selbstgefährdung,
+      eine Überforderungssituation oder ein eskalierter Konflikt vorliegt.
+    `,
+    phases: [
+      {
+        title: "Informationsphase 1 · Akuter Anlass",
+        text: "Leon verlässt abrupt den Unterricht. Die Aussage „Ich kann nicht mehr“ muss ernst genommen werden."
+      },
+      {
+        title: "Informationsphase 2 · Erreichbarkeit",
+        text: "Leon ist zunächst nicht erreichbar. Der Bruder könnte ein Schutzfaktor oder Kontaktweg sein."
+      },
+      {
+        title: "Informationsphase 3 · Nachsorge",
+        text: "Nach einer akuten Klärung stellt sich die Frage, wie Leon stabilisiert und wie die Klasse einbezogen werden kann."
+      }
+    ],
+    documents: [
+      {
+        type: "Klassenbucheintrag",
+        content: "Leon verlässt nach lautem Streit den Raum. Rückkehr bis Stundenende nicht erfolgt."
+      },
+      {
+        type: "Peer-Hinweis",
+        content: "Mitschüler berichtet: Leon sagte, er könne nicht mehr."
+      },
+      {
+        type: "Interne Notiz",
+        content: "Telefonisch nicht erreichbar. Bruder als möglicher Kontaktweg bekannt."
+      }
+    ],
+    contradictions: [
+      "Leon gilt als impulsiv, die aktuelle Aussage kann dennoch krisenhaft relevant sein.",
+      "Nicht jede dramatische Aussage bedeutet akute Selbstgefährdung, sie darf aber nicht bagatellisiert werden.",
+      "Schnelles Handeln ist nötig, private Alleingänge sind fachlich problematisch."
+    ]
+  }
+};
+
+function getRichCaseMaterial(key){
+  return richCaseMaterial[key] || {
+    longVignette: cases[key].vignette + " Ergänzend ist zu prüfen, welche Informationen gesichert sind, welche Deutungen lediglich Hypothesen darstellen und welche nächsten Schritte fachlich begründet werden können.",
+    phases: [
+      {title:"Informationsphase 1 · Ausgangslage", text:"Erste Informationen liegen vor. Beobachtung und Deutung müssen getrennt werden."},
+      {title:"Informationsphase 2 · Erweiterung", text:"Weitere Hinweise verändern die Einschätzung. Ressourcen und Risiken sind neu zu bewerten."},
+      {title:"Informationsphase 3 · Kooperation", text:"Die Zuständigkeiten von Schule, Schulsozialarbeit, Jugendhilfe und weiteren Akteuren müssen geklärt werden."}
+    ],
+    documents: [
+      {type:"E-Mail", content:"Eine beteiligte Person bittet um schnelle Klärung und beschreibt die Situation aus eigener Perspektive."},
+      {type:"Gesprächsnotiz", content:"Im Gespräch werden Belastungen, Ressourcen und offene Fragen sichtbar."},
+      {type:"Klassenbucheintrag", content:"Dokumentiert sind beobachtbare Ereignisse, jedoch keine fachliche Deutung."}
+    ],
+    contradictions: [
+      "Die Perspektiven der Beteiligten unterscheiden sich.",
+      "Ein Teil der Informationen ist beobachtbar, ein anderer Teil ist Deutung.",
+      "Institutioneller Handlungsdruck steht fachlicher Klärung gegenüber."
+    ]
+  };
+}
+
+function renderFall(){
+  const c=cases[current];
+  const rich=getRichCaseMaterial(current);
+
+  $("content").innerHTML=`
+    <div class="kicker">Fallvignette</div>
+    <h2>${c.area} · ${c.name}</h2>
+
+    <div class="info">
+      <strong>Ausführliche Fallvignette</strong><br>
+      ${rich.longVignette}
+    </div>
+
+    <h3>Mehrere Informationsphasen</h3>
+    ${rich.phases.map(p=>`
+      <details open>
+        <summary>${p.title}</summary>
+        <div class="info">${p.text}</div>
+      </details>
+    `).join("")}
+
+    <h3>Dokumente im Fall</h3>
+    ${rich.documents.map(d=>`
+      <div class="info">
+        <strong>${d.type}</strong><br>
+        ${d.content}
+      </div>
+    `).join("")}
+
+    <h3>Widersprüchliche oder mehrdeutige Informationen</h3>
+    <ul>
+      ${rich.contradictions.map(x=>`<li>${x}</li>`).join("")}
+    </ul>
+
+    <h3>Arbeitsauftrag</h3>
+    <p>
+      Markieren Sie gedanklich, welche Informationen Beobachtungen sind,
+      welche Aussagen Hypothesen darstellen und welche Informationen noch geprüft werden müssen.
+    </p>
+
+    <h3>Niedersachsenbezug</h3>
+    <p>
+      Prüfen Sie die Schnittstellen von Schule, schulischer Sozialarbeit,
+      Kinder- und Jugendhilfe, Kommune und freien Trägern.
+    </p>
+  `;
+}
+function renderDrag(){const c=cases[current];$("content").innerHTML=`<div class="kicker">Fallanalyse</div><h2>Drag-and-Drop</h2><p>Karten einordnen. Auf dem Handy: Karte antippen, danach Spalte antippen.</p><div class="bank">${c.cards.map((x,i)=>`<div class="drag" draggable="true" data-card="${i}">${x[0]}</div>`).join("")}</div><div class="zones">${c.columns.map(col=>`<div class="zone" data-zone="${col}"><h4>${col}</h4></div>`).join("")}</div><button id="checkDrag">Auswertung anzeigen</button><div id="fb" class="feedback"></div>`;setupDrag();$("checkDrag").onclick=checkDrag;}
+function setupDrag(){document.querySelectorAll(".drag").forEach(d=>{d.ondragstart=e=>{dragged=d.dataset.card;e.dataTransfer.setData("text/plain",dragged)};d.onpointerdown=()=>{dragged=d.dataset.card}});document.querySelectorAll(".zone").forEach(z=>{z.ondragover=e=>{e.preventDefault();z.classList.add("over")};z.ondragleave=()=>z.classList.remove("over");z.ondrop=e=>{e.preventDefault();z.classList.remove("over");let id=e.dataTransfer.getData("text/plain")||dragged;let card=document.querySelector(`[data-card="${id}"]`);if(card)z.appendChild(card)};z.onclick=()=>{if(dragged!==null){let card=document.querySelector(`[data-card="${dragged}"]`);if(card)z.appendChild(card);dragged=null;}}});}
+function checkDrag(){const c=cases[current];let ok=0,html="";c.cards.forEach((x,i)=>{let card=document.querySelector(`[data-card="${i}"]`);let zone=card.closest(".zone");let chosen=zone?zone.dataset.zone:"nicht zugeordnet";let good=chosen===x[1];if(good)ok++;html+=`<li><span class="${good?"ok":"bad"}">${good?"✓":"✗"}</span> <b>${x[0]}</b><br>Ihre Zuordnung: ${chosen}<br>Fachlich passend: ${x[1]}<br><em>${x[2]}</em></li>`});$("fb").innerHTML=`<h3>Auswertung</h3><p><b>${ok} von ${c.cards.length}</b> korrekt.</p><ul>${html}</ul>`;$("fb").classList.add("visible");recordPortfolioEvent("drag",{score:ok});mark("drag");}
+function renderAdaptive(){const p=multi[current].phases[0];$("content").innerHTML=`<div class="kicker">Dynamischer Verlauf</div><h2>Eine Entscheidung, mehrere Konsequenzen</h2><div class="info">${p.text}</div>${p.choices.map((ch,i)=>`<button class="casebtn" data-choice="${i}"><b>${ch[0]}</b><br>${ch[1]}</button>`).join("")}<div id="fb" class="feedback"></div>`;document.querySelectorAll("[data-choice]").forEach(b=>b.onclick=()=>{let ch=p.choices[b.dataset.choice];$("fb").innerHTML=`<h3>Konsequenz und Vergleich</h3><div class="info"><b>Ihre Entscheidung:</b> ${ch[0]}<br>${ch[3]}<br><b>Feedback:</b> ${ch[4]}</div>${p.choices.map((a,j)=>j==b.dataset.choice?"":`<details><summary>Alternative ansehen: ${a[0]}</summary><div class="info">${a[1]}<br><b>Konsequenz:</b> ${a[3]}<br><b>Feedback:</b> ${a[4]}</div></details>`).join("")}`;$("fb").classList.add("visible");recordPortfolioEvent("decision",{label:ch[0],action:ch[1],feedback:ch[4],mode:"single"});mark("adaptive");});}
+function renderMultiStart(){state={...multi[current].state};phase=0;drawMulti();}
+function drawMulti(){const m=multi[current],p=m.phases[phase];$("content").innerHTML=`<div class="kicker">Adaptiver Mehrphasenfall</div><h2>Phase ${phase+1} von ${m.phases.length}</h2>${stateGrid()}<div class="info"><b>${p.title}</b><br>${p.text}</div>${p.choices.map((ch,i)=>`<button class="casebtn" data-mchoice="${i}"><b>${ch[0]}</b><br>${ch[1]}</button>`).join("")}<div id="fb" class="feedback"></div>`;document.querySelectorAll("[data-mchoice]").forEach(b=>b.onclick=()=>chooseMulti(+b.dataset.mchoice));}
+function stateGrid(){return `<div class="stategrid">${Object.entries(state).map(([k,v])=>`<div class="state"><span>${k}</span><b>${v}</b></div>`).join("")}</div>
+
+<div class="info" style="margin-top:18px">
+<h3>Erklärung der Zustandswerte</h3>
+
+<p><strong>Didaktischer Sinn</strong></p>
+<ul>
+<li>Entscheidungen verändern Fallverläufe.</li>
+<li>Professionelles Handeln hat Folgen.</li>
+<li>Nicht jede „harte“ Entscheidung verbessert die Situation.</li>
+<li>Beziehung, Struktur und Kooperation wirken oft stabilisierend.</li>
+</ul>
+
+<p><strong>Wichtig</strong></p>
+<p>Die Werte sind kein echtes diagnostisches Instrument.</p>
+
+<ul>
+<li>didaktische Modelle</li>
+<li>Reflexionshilfen</li>
+<li>keine reale Gefährdungseinschätzung</li>
+<li>keine fachliche Risikobewertung nach § 8a SGB VIII</li>
+</ul>
+
+
+
+</div>`;}
+function chooseMulti(i){const m=multi[current],p=m.phases[phase],ch=p.choices[i];Object.entries(ch[2]).forEach(([k,v])=>state[k]=Math.max(0,Math.min(5,state[k]+v)));recordPortfolioEvent("decision",{label:ch[0],action:ch[1],feedback:ch[4],mode:"multi",phase:phase+1});$("fb").innerHTML=`<h3>Konsequenz und Vergleich</h3><div class="info"><b>Ihre Entscheidung:</b> ${ch[0]}<br><b>Fallverlauf:</b> ${ch[3]}<br><b>Feedback:</b> ${ch[4]}</div>${p.choices.map((a,j)=>j===i?"":`<details><summary>Alternative ansehen: ${a[0]}</summary><div class="info">${a[1]}<br><b>Mögliche Folge:</b> ${a[3]}<br><b>Feedback:</b> ${a[4]}</div></details>`).join("")}${stateGrid()}<button id="nextPhase">${phase<m.phases.length-1?"Weiter":"Abschließen"}</button>`;$("fb").classList.add("visible");$("nextPhase").onclick=()=>{if(phase<m.phases.length-1){phase++;drawMulti()}else{mark("multi");$("fb").innerHTML+=`<div class="info"><b>Abschluss:</b> Reflektieren Sie Vertrauen, Risiko, Kooperation und Eskalation im Verlauf.</div>`}};}
+function renderTheory(){
+  const c = cases[current];
+
+  $("content").innerHTML = `
+    <div class="kicker">Theorie</div>
+    <h2>Theorievergleich zum Fall ${c.name}</h2>
+
+    <p>
+      Analysieren Sie denselben Fall aus mehreren Theorieperspektiven.
+      Ziel ist nicht, „die eine richtige Theorie“ zu finden, sondern sichtbar zu machen,
+      was jede Theorie erklärt und wo ihre Grenzen liegen.
+    </p>
+
+    <div class="info">
+      <strong>Fallvignette:</strong><br>
+      ${c.vignette}
+    </div>
+
+    <div class="theory-grid">
+      <div class="theory-card">
+        <h3>Lebensweltorientierung</h3>
+        <p><strong>Fokus:</strong> Alltag, subjektive Deutungen, Bewältigung, Ressourcen.</p>
+        <textarea id="theory_lw" placeholder="Was macht die Lebensweltorientierung im Fall sichtbar?"></textarea>
+      </div>
+
+      <div class="theory-card">
+        <h3>Systemtheorie</h3>
+        <p><strong>Fokus:</strong> Schule, Familie, Jugendhilfe, Kommunikation, Rollen und Systemlogiken.</p>
+        <textarea id="theory_sys" placeholder="Welche Systeme und Kommunikationslogiken sind im Fall relevant?"></textarea>
+      </div>
+
+      <div class="theory-card">
+        <h3>Sozialraumorientierung</h3>
+        <p><strong>Fokus:</strong> Umfeld, Netzwerke, Ressourcen, Barrieren und kommunale Strukturen.</p>
+        <textarea id="theory_soz" placeholder="Welche sozialräumlichen Ressourcen oder Barrieren sind relevant?"></textarea>
+      </div>
+
+      <div class="theory-card">
+        <h3>Anerkennungstheorie</h3>
+        <p><strong>Fokus:</strong> Respekt, Beschämung, Zugehörigkeit, Ausgrenzung, Selbstwert.</p>
+        <textarea id="theory_an" placeholder="Wo zeigen sich Anerkennung, Beschämung oder Ausgrenzung?"></textarea>
+      </div>
+
+      <div class="theory-card">
+        <h3>Inklusion</h3>
+        <p><strong>Fokus:</strong> Teilhabe, Barrieren, institutionelle Öffnung, Diskriminierung.</p>
+        <textarea id="theory_in" placeholder="Welche Teilhabebarrieren oder Ausschlüsse werden sichtbar?"></textarea>
+      </div>
+    </div>
+
+    <h3>Theorievergleich</h3>
+    <textarea id="theory_compare" placeholder="Vergleichen Sie: Welche Theorie erklärt was besonders gut? Welche Grenzen haben die Perspektiven?"></textarea>
+
+    <h3>Niedersachsenbezug</h3>
+    <textarea id="theory_nds" placeholder="Wie helfen die Theorien, den Fall im Kontext Niedersachsen einzuordnen: Schule, Jugendhilfe, Kommune, freie Träger, Sozialraum?"></textarea>
+
+    <button id="check">Theorievergleich prüfen</button>
+    <div id="fb" class="feedback"></div>
+  `;
+
+  $("check").onclick = checkTheoryComparison;
+}
+
+function checkTheoryComparison(){
+  const fields = {
+    lw: $("theory_lw").value.toLowerCase(),
+    sys: $("theory_sys").value.toLowerCase(),
+    soz: $("theory_soz").value.toLowerCase(),
+    an: $("theory_an").value.toLowerCase(),
+    inkl: $("theory_in").value.toLowerCase(),
+    compare: $("theory_compare").value.toLowerCase(),
+    nds: $("theory_nds").value.toLowerCase()
+  };
+
+  const checks = [
+    {
+      label: "Lebensweltorientierung",
+      ok: /(alltag|lebenswelt|bewältigung|subjektiv|ressource|familie|erfahrung)/i.test(fields.lw),
+      hint: "Beziehen Sie Alltag, subjektive Deutung oder Bewältigung ein."
+    },
+    {
+      label: "Systemtheorie",
+      ok: /(system|schule|familie|jugendhilfe|rolle|kommunikation|logik|organisation)/i.test(fields.sys),
+      hint: "Benennen Sie beteiligte Systeme, Rollen oder Kommunikationslogiken."
+    },
+    {
+      label: "Sozialraumorientierung",
+      ok: /(sozialraum|umfeld|netzwerk|kommune|verein|beratung|ressource|barriere)/i.test(fields.soz),
+      hint: "Ergänzen Sie Umfeld, Netzwerke, Barrieren oder kommunale Ressourcen."
+    },
+    {
+      label: "Anerkennungstheorie",
+      ok: /(anerkennung|beschämung|respekt|zugehörigkeit|ausgrenzung|selbstwert|wertschätzung)/i.test(fields.an),
+      hint: "Benennen Sie Anerkennung, Beschämung, Ausgrenzung oder Zugehörigkeit."
+    },
+    {
+      label: "Inklusion",
+      ok: /(inklusion|teilhabe|barriere|ausschluss|diskriminierung|zugang|benachteiligung)/i.test(fields.inkl),
+      hint: "Stellen Sie Teilhabe, Barrieren oder Ausschluss heraus."
+    },
+    {
+      label: "Vergleich",
+      ok: /(vergleich|unterschied|gemeinsam|grenze|erklärt|nicht|einerseits|andererseits)/i.test(fields.compare),
+      hint: "Vergleichen Sie Nutzen und Grenzen der Theorien."
+    },
+    {
+      label: "Niedersachsenbezug",
+      ok: /(niedersachsen|schule|jugendhilfe|kommune|träger|land|sozialraum|schulische sozialarbeit)/i.test(fields.nds),
+      hint: "Ordnen Sie den Fall über Schule, Jugendhilfe, Kommune oder Trägerstrukturen in Niedersachsen ein."
+    }
+  ];
+
+  const score = checks.filter(c=>c.ok).length;
+
+  const allTheoryText = Object.values(fields).join(" ");
+  const misconceptions = detectMisconceptions(current, allTheoryText);
+
+  $("fb").innerHTML = `
+    <h3>Feedback zum Theorievergleich</h3>
+
+    <p><strong>${score} von ${checks.length}</strong> Theorieaspekten sind erkennbar.</p>
+
+    <ul>
+      ${checks.map(c=>`<li>${c.ok ? "✓" : "✗"} <strong>${c.label}:</strong> ${c.ok ? "vorhanden" : c.hint}</li>`).join("")}
+    </ul>
+
+    <div class="info">
+      <strong>Musterstruktur für Theorievergleich:</strong><br>
+      Theorieperspektive → Erkenntnisgewinn → Grenze → Vergleich → Niedersachsenbezug.
+    </div>
+
+    <div class="info">
+      <strong>Didaktischer Hinweis:</strong><br>
+      Eine starke Fallanalyse nutzt Theorien nicht als Etiketten, sondern als Werkzeuge:
+      Jede Theorie macht bestimmte Aspekte sichtbar und blendet andere eher aus.
+    </div>
+
+    ${
+      misconceptions.length
+      ? `<div class="info">
+          <strong>Erkannte fachliche Fehlkonzepte:</strong>
+          <ul>
+            ${misconceptions.map(m => `<li>${m}</li>`).join("")}
+          </ul>
+        </div>`
+      : `<div class="info"><strong>Keine typischen Fehlkonzepte erkannt.</strong></div>`
+    }
+  `;
+
+  $("fb").classList.add("visible");
+  recordPortfolioEvent("theory",{score:score,niedersachsen:checks[6].ok});mark("theorie");
+}
+function renderDoc(){
+  $("content").innerHTML=`
+    <div class="kicker">Dokumentation</div>
+    <h2>Fachliche Dokumentationsmaske</h2>
+
+    <p>
+      Füllen Sie die Felder möglichst sachlich aus. Ziel ist eine nachvollziehbare,
+      datenschutzsensible und fachlich begründete Fallnotiz.
+    </p>
+
+    <label><strong>1. Anlass</strong></label>
+    <textarea id="doc_anlass" placeholder="Warum wird der Fall bearbeitet? Wer hat was berichtet?"></textarea>
+
+    <label><strong>2. Beobachtung</strong></label>
+    <textarea id="doc_beobachtung" placeholder="Was wurde beobachtet oder berichtet? Keine Bewertung, keine Diagnose."></textarea>
+
+    <label><strong>3. Hypothese</strong></label>
+    <textarea id="doc_hypothese" placeholder="Welche fachliche Deutung ist möglich, aber noch zu prüfen?"></textarea>
+
+    <label><strong>4. Risiko / Schutzbedarf</strong></label>
+    <textarea id="doc_risiko" placeholder="Welche Risiken oder Schutzbedarfe sind erkennbar?"></textarea>
+
+    <label><strong>5. Ressourcen / Schutzfaktoren</strong></label>
+    <textarea id="doc_ressourcen" placeholder="Welche Ressourcen, Beziehungen oder Unterstützungsfaktoren sind vorhanden?"></textarea>
+
+    <label><strong>6. Nächster Schritt</strong></label>
+    <textarea id="doc_schritt" placeholder="Was ist der nächste fachlich begründete Schritt?"></textarea>
+
+    <label><strong>7. Datenschutz / Informationsweitergabe</strong></label>
+    <textarea id="doc_datenschutz" placeholder="Welche Informationen dürfen, sollen oder müssen weitergegeben werden? Was ist zu prüfen?"></textarea>
+
+    <label><strong>8. Niedersachsenbezug</strong></label>
+    <textarea id="doc_nds" placeholder="Welche Rolle spielen Schule, schulische Sozialarbeit, Kinder- und Jugendhilfe, Kommune oder freie Träger?"></textarea>
+
+    <button id="check">Dokumentation prüfen</button>
+    <div id="fb" class="feedback"></div>
+  `;
+
+  $("check").onclick=checkDocumentationMask;
+}
+
+function checkDocumentationMask(){
+  const fields = {
+    anlass: $("doc_anlass").value.toLowerCase(),
+    beobachtung: $("doc_beobachtung").value.toLowerCase(),
+    hypothese: $("doc_hypothese").value.toLowerCase(),
+    risiko: $("doc_risiko").value.toLowerCase(),
+    ressourcen: $("doc_ressourcen").value.toLowerCase(),
+    schritt: $("doc_schritt").value.toLowerCase(),
+    datenschutz: $("doc_datenschutz").value.toLowerCase(),
+    nds: $("doc_nds").value.toLowerCase()
+  };
+
+  const allText = Object.values(fields).join(" ");
+  const wertend = /(faul|schuld|asozial|unfähig|verwahrlost|schlimm|katastrophe|lügt|unwillig)/i.test(allText);
+
+  const checks = [
+    {
+      label:"Anlass",
+      ok: fields.anlass.length > 30 && /(berichtet|meldung|anlass|lehrkraft|schüler|schülerin|gespräch|beobachtung)/i.test(fields.anlass),
+      hint:"Benennen Sie den Anlass und die Informationsquelle."
+    },
+    {
+      label:"Beobachtung",
+      ok: fields.beobachtung.length > 30 && /(beobachtet|berichtet|wirkt|aussage|meldet|zeigt|kommt|fehlt)/i.test(fields.beobachtung),
+      hint:"Trennen Sie Beobachtung von Bewertung."
+    },
+    {
+      label:"Hypothese",
+      ok: fields.hypothese.length > 20 && /(möglich|hypothese|denkbar|zu prüfen|könnte|belastung|barriere)/i.test(fields.hypothese),
+      hint:"Formulieren Sie eine vorläufige Deutung als prüfbare Hypothese."
+    },
+    {
+      label:"Risiko / Schutzbedarf",
+      ok: fields.risiko.length > 20 && /(risiko|schutz|gefährdung|belastung|eskalation|absentismus|selbst|ausgrenzung)/i.test(fields.risiko),
+      hint:"Benennen Sie mögliche Risiken oder Schutzbedarfe."
+    },
+    {
+      label:"Ressourcen",
+      ok: fields.ressourcen.length > 20 && /(ressource|schutzfaktor|kontakt|beziehung|lehrkraft|freund|familie|stärke|interesse)/i.test(fields.ressourcen),
+      hint:"Ergänzen Sie Ressourcen oder Schutzfaktoren."
+    },
+    {
+      label:"Nächster Schritt",
+      ok: fields.schritt.length > 20 && /(gespräch|klären|prüfen|dokumentieren|abstimmen|einbeziehen|kontakt|verfahren)/i.test(fields.schritt),
+      hint:"Formulieren Sie einen konkreten nächsten Schritt."
+    },
+    {
+      label:"Datenschutz",
+      ok: fields.datenschutz.length > 20 && /(datenschutz|schweigepflicht|einwilligung|weitergabe|vertraulich|zweck|schutzauftrag)/i.test(fields.datenschutz),
+      hint:"Gehen Sie auf Datenschutz, Vertraulichkeit oder Informationsweitergabe ein."
+    },
+    {
+      label:"Niedersachsenbezug",
+      ok: fields.nds.length > 20 && /(niedersachsen|schule|jugendhilfe|kommune|träger|land|schulsozialarbeit|schulische sozialarbeit|freie träger)/i.test(fields.nds),
+      hint:"Beziehen Sie Schule, Jugendhilfe, Kommune oder Trägerstrukturen ein."
+    }
+  ];
+
+  let score = checks.filter(c=>c.ok).length;
+
+  const misconceptions = detectMisconceptions(current, allText);
+
+  $("fb").innerHTML = `
+    <h3>Feedback zur Dokumentation</h3>
+
+    <p><strong>${score} von ${checks.length}</strong> Dokumentationsaspekten sind erkennbar.</p>
+
+    <p>${wertend ? "✗ Wertende oder stigmatisierende Sprache erkannt. Formulieren Sie sachlicher." : "✓ Keine grob wertende Sprache erkannt."}</p>
+
+    <ul>
+      ${checks.map(c=>`<li>${c.ok ? "✓" : "✗"} <strong>${c.label}:</strong> ${c.ok ? "vorhanden" : c.hint}</li>`).join("")}
+    </ul>
+
+    <div class="info">
+      <strong>Musterstruktur einer fachlichen Fallnotiz:</strong><br>
+      Anlass → Beobachtung → Hypothese → Risiko / Schutzbedarf → Ressourcen → nächster Schritt → Datenschutz → Niedersachsenbezug.
+    </div>
+
+    <div class="info">
+      <strong>Wichtig:</strong> Dokumentation ist kein Sammeln persönlicher Eindrücke.
+      Sie muss sachlich, zweckgebunden, datensparsam und fachlich nachvollziehbar sein.
+    </div>
+
+    ${
+      misconceptions.length
+      ? `<div class="info">
+          <strong>Erkannte fachliche Fehlkonzepte:</strong>
+          <ul>
+            ${misconceptions.map(m => `<li>${m}</li>`).join("")}
+          </ul>
+        </div>`
+      : `<div class="info"><strong>Keine typischen Fehlkonzepte erkannt.</strong></div>`
+    }
+  `;
+
+  $("fb").classList.add("visible");
+  recordPortfolioEvent("documentation",{score:score,datenschutz:checks[6].ok,niedersachsen:checks[7].ok});mark("doku");
+}
+function renderEval(){$("content").innerHTML=`<div class="kicker">Evaluation</div><h2>Ziel, Indikator, Grenze</h2><textarea id="txt" aria-label="Antwortfeld" placeholder="Ziel, Indikator, Grenze..."></textarea><button id="check">Prüfen</button><div id="fb" class="feedback"></div>`;$("check").onclick=()=>{let t=$("txt").value.toLowerCase();$("fb").innerHTML=`<p>${/(ziel|verbessern|stabilisieren)/.test(t)?"✓ Ziel erkennbar":"✗ Ziel ergänzen"}</p><p>${/(indikator|beobachtbar|messbar|teilnahme)/.test(t)?"✓ Indikator erkennbar":"✗ Indikator ergänzen"}</p><p>${/(grenze|aussagekraft|nicht sicher)/.test(t)?"✓ Grenze erkennbar":"✗ Grenze ergänzen"}</p>`;$("fb").classList.add("visible");recordPortfolioEvent("evaluation",{score:3});mark("evaluation");};}
+function renderRefl(){$("content").innerHTML=`<div class="kicker">Reflexion</div><h2>Reflexionsjournal</h2><textarea id="txt" aria-label="Antwortfeld" placeholder="Reflektieren Sie Vorannahmen, Spannungen und Niedersachsenbezug..."></textarea><button id="check">Abschließen</button><div id="fb" class="feedback"></div>`;$("check").onclick=()=>{let t=$("txt").value.toLowerCase();$("fb").innerHTML=`<p>${/(spannung|grenze|dilemma|niedersachsen|annahme)/.test(t)?"✓ Reflexionsanteil erkennbar":"✗ Reflexion vertiefen"}</p>`;$("fb").classList.add("visible");recordPortfolioEvent("reflection",{text:t});mark("reflexion");};}
+
+
+
+function renderPrivacyEthics(){
+  const c = cases[current];
+
+  $("content").innerHTML = `
+    <div class="kicker">Datenschutz und Ethik</div>
+    <h2>Schweigepflicht, Informationsweitergabe, § 8a und Dokumentationsgrenzen</h2>
+
+    <div class="info">
+      <strong>Fallbezug:</strong><br>
+      ${c.area} · ${c.name}<br><br>
+      ${c.vignette}
+    </div>
+
+    <h3>1. Schweigepflicht und Vertraulichkeit</h3>
+    <p>
+      Beschreiben Sie, welche Informationen im Fall vertraulich zu behandeln sind
+      und wie Sie gegenüber Schüler:innen transparent über Grenzen von Vertraulichkeit sprechen würden.
+    </p>
+    <textarea id="ethik_schweigepflicht" placeholder="Ihre Antwort zu Schweigepflicht und Vertraulichkeit..."></textarea>
+
+    <h3>2. Informationsweitergabe</h3>
+    <p>
+      Wer darf oder muss welche Informationen erhalten? Begründen Sie zweckgebunden und datensparsam.
+    </p>
+    <textarea id="ethik_weitergabe" placeholder="Ihre Antwort zur Informationsweitergabe..."></textarea>
+
+    <h3>3. § 8a SGB VIII / Schutzauftrag</h3>
+    <p>
+      Prüfen Sie, ob im Fall gewichtige Anhaltspunkte für eine Kindeswohlgefährdung denkbar sind
+      und welche fachliche Verfahrenslogik daraus folgen könnte.
+    </p>
+    <textarea id="ethik_8a" placeholder="Ihre Einschätzung zu § 8a und Schutzauftrag..."></textarea>
+
+    <h3>4. Dokumentationsgrenzen</h3>
+    <p>
+      Was gehört in die Dokumentation und was nicht? Achten Sie auf Sachlichkeit, Zweckbindung und Vermeidung von Stigmatisierung.
+    </p>
+    <textarea id="ethik_doku" placeholder="Ihre Antwort zu Dokumentationsgrenzen..."></textarea>
+
+    <h3>5. Ethisches Dilemma</h3>
+    <p>
+      Formulieren Sie ein mögliches Spannungsfeld im Fall, z. B. Vertrauen vs. Schutzauftrag,
+      Hilfe vs. Kontrolle oder Transparenz vs. Datenschutz.
+    </p>
+    <textarea id="ethik_dilemma" placeholder="Ihre ethische Reflexion..."></textarea>
+
+    <button id="checkPrivacyEthics">Datenschutz-/Ethikantwort prüfen</button>
+    <div id="fb" class="feedback"></div>
+  `;
+
+  $("checkPrivacyEthics").onclick = checkPrivacyEthics;
+}
+
+function checkPrivacyEthics(){
+  const fields = {
+    schweigepflicht: $("ethik_schweigepflicht").value.toLowerCase(),
+    weitergabe: $("ethik_weitergabe").value.toLowerCase(),
+    achtA: $("ethik_8a").value.toLowerCase(),
+    doku: $("ethik_doku").value.toLowerCase(),
+    dilemma: $("ethik_dilemma").value.toLowerCase()
+  };
+
+  const allText = Object.values(fields).join(" ");
+  const misconceptions = detectMisconceptions(current, allText);
+
+  const checks = [
+    {
+      label: "Schweigepflicht / Vertraulichkeit",
+      ok: /(schweigepflicht|vertraulich|vertrauen|grenze|transparent|einwilligung)/i.test(fields.schweigepflicht),
+      hint: "Benennen Sie Vertraulichkeit, Einwilligung und Grenzen der Schweigepflicht."
+    },
+    {
+      label: "Informationsweitergabe",
+      ok: /(weitergabe|zweck|datensparsam|einwilligung|notwendig|beteiligte|schule|jugendhilfe)/i.test(fields.weitergabe),
+      hint: "Begründen Sie, wer welche Informationen zu welchem Zweck erhalten darf."
+    },
+    {
+      label: "§ 8a / Schutzauftrag",
+      ok: /(§ 8a|8a|schutzauftrag|kindeswohl|gefährdung|gewichtige anhaltspunkte|insoweit erfahrene fachkraft|verfahren)/i.test(fields.achtA),
+      hint: "Stellen Sie den Schutzauftrag, gewichtige Anhaltspunkte und Verfahrenslogik dar."
+    },
+    {
+      label: "Dokumentationsgrenzen",
+      ok: /(sachlich|zweckgebunden|datensparsam|beobachtung|hypothese|wertung|diagnose|stigmatisierung)/i.test(fields.doku),
+      hint: "Trennen Sie Beobachtung und Hypothese. Vermeiden Sie Wertungen, Diagnosen und unnötige Details."
+    },
+    {
+      label: "Ethisches Dilemma",
+      ok: /(dilemma|spannung|vertrauen|schutz|kontrolle|hilfe|transparenz|datenschutz|einerseits|andererseits)/i.test(fields.dilemma),
+      hint: "Benennen Sie ein Spannungsfeld und reflektieren Sie beide Seiten."
+    }
+  ];
+
+  const score = checks.filter(c => c.ok).length;
+
+  let caseHint = "Prüfen Sie Schweigepflicht, Informationsweitergabe und Dokumentationsgrenzen immer fallbezogen.";
+
+  if(current === "lea"){
+    caseHint = "Bei Lea ist § 8a besonders relevant. Wichtig ist die Trennung von Beobachtung, Hypothese und gewichtigen Anhaltspunkten.";
+  }
+
+  if(current === "sophie"){
+    caseHint = "Bei Sophie stehen Datenschutz, digitale Beweise, Schutz vor weiterer Verbreitung und Beteiligung der Betroffenen im Vordergrund.";
+  }
+
+  if(current === "jonas" || current === "leon"){
+    caseHint = "Bei psychischer Belastung oder Krise müssen Vertraulichkeit, Schutzauftrag, akute Risiken und Notfallwege sorgfältig abgewogen werden.";
+  }
+
+  if(current === "mira"){
+    caseHint = "Bei Elternkonflikten sind Sorgefragen, Informationsrechte, Parteilichkeit und Schutz des Kindes vor Loyalitätskonflikten zentral.";
+  }
+
+  $("fb").innerHTML = `
+    <h3>Feedback Datenschutz/Ethik</h3>
+
+    <p><strong>${score} von ${checks.length}</strong> zentralen Aspekten sind erkennbar.</p>
+
+    <ul>
+      ${checks.map(c => `<li>${c.ok ? "✓" : "✗"} <strong>${c.label}:</strong> ${c.ok ? "vorhanden" : c.hint}</li>`).join("")}
+    </ul>
+
+    <div class="info">
+      <strong>Fallspezifischer Hinweis:</strong><br>
+      ${caseHint}
+    </div>
+
+    <div class="info">
+      <strong>Musterstruktur:</strong><br>
+      1. Welche Information liegt vor?<br>
+      2. Wer braucht sie zu welchem Zweck?<br>
+      3. Gibt es Einwilligung oder eine rechtliche Grundlage?<br>
+      4. Besteht ein Schutzauftrag oder akutes Risiko?<br>
+      5. Was darf sachlich dokumentiert werden?<br>
+      6. Welche ethische Spannung bleibt bestehen?
+    </div>
+
+    <div class="info">
+      <strong>Wichtig:</strong><br>
+      Das Modul ersetzt keine Rechtsberatung und keine verbindliche Verfahrensanweisung.
+      Bei Kinderschutz, akuter Gefährdung oder Datenschutzfragen sind aktuelle Rechtsgrundlagen,
+      Trägervorgaben und fachliche Verfahren zu prüfen.
+    </div>
+
+    ${
+      misconceptions.length
+      ? `<div class="info">
+          <strong>Erkannte fachliche Fehlkonzepte:</strong>
+          <ul>${misconceptions.map(m => `<li>${m}</li>`).join("")}</ul>
+        </div>`
+      : `<div class="info"><strong>Keine typischen Fehlkonzepte erkannt.</strong></div>`
+    }
+  `;
+
+  $("fb").classList.add("visible");
+
+  recordPortfolioEvent("task",{task:"datenschutz_ethik"});
+  recordPortfolioEvent("documentation",{score:score,datenschutz:true,niedersachsen:/niedersachsen|schule|jugendhilfe|kommune|träger|land/i.test(allText)});
+}
+
+
+const teacherResources = {
+  ali: {
+    muster: {
+      beobachtung: "Ali fehlt häufig, wirkt müde und kommt teilweise ohne Frühstück zur Schule.",
+      hypothese: "Mögliche familiäre Belastungen oder Überforderungssituationen sollten geprüft werden.",
+      profession: "Ein beziehungsorientierter Zugang und Kooperation mit Schule und Familie erscheinen fachlich sinnvoll.",
+      niedersachsen: "Relevant sind schulische Verantwortung, Kooperation mit Jugendhilfe und kommunale Unterstützungsstrukturen."
+    },
+    diskussion: [
+      "Wo liegen Grenzen schulischer Verantwortung bei Schulabsentismus?",
+      "Wie kann Kontrolle vermieden werden, ohne Risiken zu bagatellisieren?",
+      "Welche Rolle spielt Ressourcenorientierung?"
+    ]
+  },
+
+  lea: {
+    muster: {
+      beobachtung: "Lea wirkt hungrig, ungepflegt und übermüdet.",
+      hypothese: "Es könnten gewichtige Belastungen oder Vernachlässigung vorliegen. Beobachtung und Hypothese müssen getrennt werden.",
+      profession: "Dokumentation, kollegiale Beratung und ggf. Prüfung des Schutzauftrags nach § 8a sind relevant.",
+      niedersachsen: "Kinderschutz erfolgt in Kooperation von Schule, Jugendhilfe und kommunalen Verfahren."
+    },
+    diskussion: [
+      "Wann liegen gewichtige Anhaltspunkte vor?",
+      "Wie unterscheiden sich Beobachtung und Diagnose?",
+      "Welche Risiken entstehen durch vorschnelle Zuschreibungen?"
+    ]
+  }
+};
+
+function getTeacherResource(key){
+  return teacherResources[key] || {
+    muster:{
+      beobachtung:"Beobachtungen sollten sachlich beschrieben werden.",
+      hypothese:"Hypothesen sind prüfbare fachliche Deutungen.",
+      profession:"Professionelles Handeln verbindet Beziehung, Struktur und Reflexion.",
+      niedersachsen:"Schule, Jugendhilfe, Kommune und Träger sollten mitgedacht werden."
+    },
+    diskussion:[
+      "Welche Theorieperspektive hilft im Fall besonders weiter?",
+      "Welche professionellen Spannungen werden sichtbar?",
+      "Welche Rolle spielt Niedersachsenbezug?"
+    ]
+  };
+}
+
+
+function rubricLabel(k){
+  const labels = {
+    fallanalyse: "Fallanalyse",
+    theorie: "Theoriebezug",
+    datenschutz: "Datenschutz / Ethik",
+    dokumentation: "Dokumentation",
+    reflexion: "Reflexion",
+    niedersachsen: "Niedersachsenbezug"
+  };
+  return labels[k] || k;
+}
+
+function renderAssessmentRubric(){
+  const c = cases[current];
+
+  $("content").innerHTML = `
+    <div class="kicker">Bewertungsraster</div>
+    <h2>Bewertung fachlicher Fallbearbeitung</h2>
+
+    <div class="info">
+      <strong>Fall:</strong><br>
+      ${c.area} · ${c.name}
+    </div>
+
+    <table class="portfolio-table rubric-table">
+      <tr>
+        <th>Bereich</th>
+        <th>0 Punkte</th>
+        <th>1 Punkt</th>
+        <th>2 Punkte</th>
+      </tr>
+
+      <tr>
+        <td><strong>Fallanalyse</strong></td>
+        <td>Beobachtung und Deutung vermischt</td>
+        <td>teilweise nachvollziehbar</td>
+        <td>klare Trennung von Beobachtung, Hypothese, Risiko und Ressourcen</td>
+      </tr>
+
+      <tr>
+        <td><strong>Theoriebezug</strong></td>
+        <td>kein Theoriebezug</td>
+        <td>Theorie genannt</td>
+        <td>Theorie fachlich angewendet und reflektiert</td>
+      </tr>
+
+      <tr>
+        <td><strong>Datenschutz</strong></td>
+        <td>Datenschutz fehlt</td>
+        <td>teilweise berücksichtigt</td>
+        <td>Schweigepflicht, Informationsweitergabe und Schutzauftrag reflektiert</td>
+      </tr>
+
+      <tr>
+        <td><strong>Dokumentation</strong></td>
+        <td>wertend oder unklar</td>
+        <td>teilweise sachlich</td>
+        <td>sachlich und nachvollziehbar dokumentiert</td>
+      </tr>
+
+      <tr>
+        <td><strong>Reflexion</strong></td>
+        <td>keine professionelle Reflexion</td>
+        <td>einzelne Spannungen erkannt</td>
+        <td>Dilemmata und Grenzen differenziert reflektiert</td>
+      </tr>
+
+      <tr>
+        <td><strong>Niedersachsenbezug</strong></td>
+        <td>kein Bezug</td>
+        <td>Institutionen benannt</td>
+        <td>Schule, Jugendhilfe, Kommune und Träger logisch eingeordnet</td>
+      </tr>
+    </table>
+
+    <h3>Selbsteinschätzung</h3>
+
+    <div class="rubric-grid">
+      ${["fallanalyse","theorie","datenschutz","dokumentation","reflexion","niedersachsen"].map(k=>`
+        <div class="info">
+          <strong>${rubricLabel(k)}</strong><br><br>
+
+          <label><input type="radio" name="${k}" value="0">0 Punkte</label><br>
+          <label><input type="radio" name="${k}" value="1">1 Punkt</label><br>
+          <label><input type="radio" name="${k}" value="2">2 Punkte</label>
+        </div>
+      `).join("")}
+    </div>
+
+    <button id="evaluateRubric">Bewertung auswerten</button>
+
+    <div id="fb" class="feedback"></div>
+  `;
+
+  $("evaluateRubric").onclick = evaluateRubric;
+}
+
+function evaluateRubric(){
+  const areas = ["fallanalyse","theorie","datenschutz","dokumentation","reflexion","niedersachsen"];
+  const scores = {};
+  let total = 0;
+
+  areas.forEach(a=>{
+    const checked = document.querySelector(`input[name="${a}"]:checked`);
+    const val = checked ? Number(checked.value) : 0;
+    scores[a] = val;
+    total += val;
+  });
+
+  let level = "";
+
+  if(total <= 4){
+    level = "grundlegend";
+  } else if(total <= 8){
+    level = "fortgeschritten";
+  } else {
+    level = "differenziert";
+  }
+
+  const feedback = [];
+
+  if(scores.fallanalyse < 2){
+    feedback.push("Beobachtung, Hypothese und Risiko sollten klarer getrennt werden.");
+  }
+
+  if(scores.theorie < 2){
+    feedback.push("Theorien sollten stärker auf den konkreten Fall angewendet werden.");
+  }
+
+  if(scores.datenschutz < 2){
+    feedback.push("Datenschutz, Schweigepflicht und Informationsweitergabe sollten stärker reflektiert werden.");
+  }
+
+  if(scores.dokumentation < 2){
+    feedback.push("Dokumentation sollte sachlicher und strukturierter formuliert werden.");
+  }
+
+  if(scores.reflexion < 2){
+    feedback.push("Professionelle Spannungen und Dilemmata könnten stärker reflektiert werden.");
+  }
+
+  if(scores.niedersachsen < 2){
+    feedback.push("Der Niedersachsenbezug sollte deutlicher hergestellt werden.");
+  }
+
+  $("fb").innerHTML = `
+    <h3>Auswertung Bewertungsraster</h3>
+
+    <p><strong>Gesamtpunktzahl:</strong> ${total} von 12 Punkten</p>
+
+    <p><strong>Niveau:</strong> ${level}</p>
+
+    <h3>Teilbewertungen</h3>
+
+    <ul>
+      ${areas.map(a=>`<li><strong>${rubricLabel(a)}:</strong> ${scores[a]} von 2 Punkten</li>`).join("")}
+    </ul>
+
+    <h3>Fachliches Feedback</h3>
+
+    <ul>
+      ${feedback.map(f=>`<li>${f}</li>`).join("")}
+    </ul>
+
+    <div class="info">
+      <strong>Hinweis:</strong><br>
+      Das Raster dient der hochschuldidaktischen Orientierung und Selbstreflexion.
+    </div>
+  `;
+
+  $("fb").classList.add("visible");
+}
+
+function renderTeacherMode(){
+  const c = cases[current];
+  const r = getTeacherResource(current);
+
+  $("content").innerHTML = `
+    <div class="kicker">Lehrendenmodus</div>
+    <h2>Didaktische Materialien für Seminare und Lehre</h2>
+
+    <div class="info">
+      <strong>Fall:</strong><br>
+      ${c.area} · ${c.name}<br><br>
+      ${c.vignette}
+    </div>
+
+    <h3>Musterlösung</h3>
+
+    <div class="info">
+      <strong>Beobachtung</strong><br>
+      ${r.muster.beobachtung}
+    </div>
+
+    <div class="info">
+      <strong>Fachliche Hypothese</strong><br>
+      ${r.muster.hypothese}
+    </div>
+
+    <div class="info">
+      <strong>Professionelles Vorgehen</strong><br>
+      ${r.muster.profession}
+    </div>
+
+    <div class="info">
+      <strong>Niedersachsenbezug</strong><br>
+      ${r.muster.niedersachsen}
+    </div>
+
+    <h3>Bewertungskriterien</h3>
+
+    <table class="portfolio-table">
+      <tr><th>Bereich</th><th>Kriterium</th><th>Punkte</th></tr>
+      <tr><td>Fallanalyse</td><td>Beobachtung und Hypothese werden getrennt.</td><td>2</td></tr>
+      <tr><td>Theorie</td><td>Theoriebezug wird nachvollziehbar genutzt.</td><td>2</td></tr>
+      <tr><td>Datenschutz/Ethik</td><td>Schweigepflicht oder Schutzauftrag werden reflektiert.</td><td>2</td></tr>
+      <tr><td>Niedersachsenbezug</td><td>Schule, Jugendhilfe, Kommune oder Träger werden einbezogen.</td><td>2</td></tr>
+      <tr><td>Reflexion</td><td>Spannungen oder Dilemmata werden reflektiert.</td><td>2</td></tr>
+    </table>
+
+    <div class="info"><strong>Maximalpunktzahl:</strong> 10 Punkte</div>
+
+    <h3>Seminardiskussionsfragen</h3>
+    <ul>${r.diskussion.map(q => `<li>${q}</li>`).join("")}</ul>
+
+    <h3>Hinweise zur Auswertung von Studierendenantworten</h3>
+
+    <div class="info">
+      <strong>Typische Fehlkonzepte</strong>
+      <ul>
+        <li>vorschnelle Diagnosen</li>
+        <li>Moralisierung</li>
+        <li>reine Straflogik</li>
+        <li>fehlende Datenschutzabwägung</li>
+        <li>Defizitorientierung statt Ressourcenorientierung</li>
+      </ul>
+    </div>
+
+    <div class="info">
+      <strong>Didaktische Hinweise</strong>
+      <ul>
+        <li>Mehrperspektivität fördern</li>
+        <li>Beobachtung und Deutung trennen</li>
+        <li>Ressourcenorientierung stärken</li>
+        <li>Niedersachsenbezug sichtbar machen</li>
+        <li>professionelle Spannungsfelder reflektieren</li>
+      </ul>
+    </div>
+  `;
+}
+
+function renderReviewMode(){
+  const allCases = Object.entries(cases);
+  const [caseKey, c] = allCases[Math.floor(Math.random() * allCases.length)];
+
+  const formats = ["Kurzfallanalyse", "Theoriefrage", "Dokumentationsauftrag", "Entscheidungsdilemma", "Niedersachsenbezug"];
+  const format = formats[Math.floor(Math.random() * formats.length)];
+
+  let prompt = "";
+  let criteria = [];
+
+  if(format === "Kurzfallanalyse"){
+    prompt = `Analysieren Sie den Fall ${c.name} kurz: Welche Beobachtung, Hypothese, Risiko, Ressource und nächster Schritt sind erkennbar?`;
+    criteria = ["Beobachtung", "Hypothese", "Risiko", "Ressource", "nächster Schritt"];
+  }
+
+  if(format === "Theoriefrage"){
+    prompt = `Wählen Sie eine Theorie aus und erklären Sie, was diese Theorie im Fall ${c.name} sichtbar macht. Benennen Sie auch eine Grenze der Theorie.`;
+    criteria = ["Theorie", "erklärt", "Grenze", "Fallbezug"];
+  }
+
+  if(format === "Dokumentationsauftrag"){
+    prompt = `Formulieren Sie eine kurze sachliche Fallnotiz zum Fall ${c.name}. Trennen Sie Beobachtung und Hypothese.`;
+    criteria = ["sachlich", "Beobachtung", "Hypothese", "nächster Schritt"];
+  }
+
+  if(format === "Entscheidungsdilemma"){
+    prompt = `Beschreiben Sie eine fachlich tragfähige Entscheidung im Fall ${c.name}. Welche Alternative wäre problematisch und warum?`;
+    criteria = ["Entscheidung", "Alternative", "Begründung", "Konsequenz"];
+  }
+
+  if(format === "Niedersachsenbezug"){
+    prompt = `Ordnen Sie den Fall ${c.name} in Niedersachsen ein: Welche Rolle spielen Schule, schulische Sozialarbeit, Kinder- und Jugendhilfe, Kommune oder freie Träger?`;
+    criteria = ["Niedersachsen", "Schule", "Jugendhilfe", "Kommune", "Träger"];
+  }
+
+  $("content").innerHTML = `
+    <div class="kicker">Wiederholungsmodus</div>
+    <h2>Zufallsaufgabe aus allen Fällen</h2>
+
+    <div class="info">
+      <strong>Fall:</strong> ${c.area} · ${c.name}<br>
+      <strong>Vignette:</strong><br>${c.vignette}
+    </div>
+
+    <div class="info">
+      <strong>Aufgabenformat:</strong> ${format}<br>
+      ${prompt}
+    </div>
+
+    <label><strong>Schwierigkeitsstufe</strong></label>
+    <select id="difficultySelect">
+      <option value="basis">Basis</option>
+      <option value="vertiefung">Vertiefung</option>
+      <option value="komplex">Komplex</option>
+    </select>
+
+    <div id="difficultyInfo" class="info">
+      <strong>Basis:</strong> klare Hinweise und eindeutige Struktur.
+    </div>
+
+    <textarea id="reviewAnswer" aria-label="Antwort im Wiederholungsmodus" placeholder="Ihre Antwort..."></textarea>
+
+    <button id="checkReview">Antwort prüfen</button>
+    <button class="secondary" onclick="renderReviewMode()">Neue Zufallsaufgabe</button>
+
+    <div id="fb" class="feedback"></div>
+  `;
+
+  updateDifficultyInfo(); $("checkReview").onclick = () => checkReviewAnswer(format, criteria, caseKey, c);
+}
+
+function checkReviewAnswer(format, criteria, caseKey, c){
+  const text = $("reviewAnswer").value.toLowerCase();
+  const difficulty = $("difficultySelect") ? $("difficultySelect").value : "basis";
+
+  const hits = criteria.filter(k => text.includes(k.toLowerCase()));
+  const structure = /(weil|da|denn|deshalb|daraus folgt|begründet)/i.test(text);
+  const nds = /(niedersachsen|schule|jugendhilfe|kommune|träger|land|schulische sozialarbeit)/i.test(text);
+  const reflexion = /(grenze|kritisch|dilemma|spannung|einerseits|andererseits|nicht automatisch)/i.test(text);
+  const sachlich = !/(faul|schuld|asozial|unfähig|lügt)/i.test(text);
+
+  const misconceptions = detectMisconceptions(caseKey, text);
+
+  let specificHint = "";
+
+  if(caseKey === "ali"){
+    specificHint = "Achten Sie auf Schulabsentismus, Beziehungsaufbau und Zusammenarbeit mit Familie und Schule.";
+  }
+
+  if(caseKey === "lea"){
+    specificHint = "Trennen Sie Beobachtung, Risikoabwägung und Schutzauftrag fachlich sauber.";
+  }
+
+  if(caseKey === "sophie"){
+    specificHint = "Cybermobbing verlangt Schutz, Datenschutz und sensible Gesprächsführung.";
+  }
+
+  if(caseKey === "leon"){
+    specificHint = "Akute Krisen benötigen strukturierte Einschätzung und Schutzorientierung.";
+  }
+
+  if(caseKey === "ben"){
+    specificHint = "Inklusion fragt nach Barrieren und Teilhabemöglichkeiten, nicht nur nach individuellen Defiziten.";
+  }
+
+  $("fb").innerHTML = `
+    <h3>Feedback zur Zufallsaufgabe</h3>
+
+    <p><strong>Aufgabenformat:</strong> ${format}</p>
+
+    <ul>
+      <li>${hits.length >= Math.ceil(criteria.length / 2) ? "✓" : "✗"} <strong>Zentrale Kriterien:</strong> ${hits.length} von ${criteria.length} erkannt.</li>
+      <li>${structure ? "✓" : "✗"} <strong>Begründungsstruktur:</strong> ${structure ? "vorhanden" : "ergänzen Sie eine Begründung mit weil/da/deshalb."}</li>
+      <li>${nds ? "✓" : "✗"} <strong>Niedersachsenbezug:</strong> ${nds ? "vorhanden" : "Schule, Jugendhilfe, Kommune oder Träger einbeziehen."}</li>
+      <li>${reflexion ? "✓" : "✗"} <strong>Reflexion:</strong> ${reflexion ? "vorhanden" : "Grenzen, Spannungen oder Dilemmata ergänzen."}</li>
+      <li>${sachlich ? "✓" : "✗"} <strong>Sprache:</strong> ${sachlich ? "keine grob wertende Sprache erkannt" : "wertende Sprache vermeiden."}</li>
+    </ul>
+
+    <div class="info">
+      <strong>Musterstruktur:</strong><br>
+      Aussage → Begründung → Fallbezug → Niedersachsenbezug → Reflexion.
+    </div>
+
+    <div class="info">
+      <strong>Fallspezifischer Hinweis:</strong><br>
+      ${specificHint}
+    </div>
+
+    ${
+      misconceptions.length
+      ? `<div class="info">
+          <strong>Erkannte fachliche Fehlkonzepte:</strong>
+          <ul>
+            ${misconceptions.map(m => `<li>${m}</li>`).join("")}
+          </ul>
+        </div>`
+      : `<div class="info"><strong>Keine typischen Fehlkonzepte erkannt.</strong></div>`
+    }
+
+    ${
+      difficulty === "basis"
+      ? `<div class="info"><strong>Basisniveau:</strong> Strukturierte Beschreibung und nachvollziehbare Fachsprache stehen im Vordergrund.</div>`
+      : ""
+    }
+
+    ${
+      difficulty === "vertiefung"
+      ? `<div class="info"><strong>Vertiefungsniveau:</strong> Mehrperspektivität, Theorievergleich und Reflexion werden stärker erwartet.</div>`
+      : ""
+    }
+
+    ${
+      difficulty === "komplex"
+      ? `<div class="info"><strong>Komplexes Niveau:</strong> Erwartet werden Dilemmaanalyse, Datenschutzabwägungen, institutionelle Spannungen und begründete Priorisierung.</div>`
+      : ""
+    }
+  `;
+
+  $("fb").classList.add("visible");
+  recordPortfolioEvent("task",{task:"wiederholung"});
+}
+
+
+document.addEventListener("change", function(e){
+  if(e.target && e.target.id === "difficultySelect"){
+    updateDifficultyInfo();
+  }
+});
+
+function updateDifficultyInfo(){
+  const val = $("difficultySelect")?.value;
+  const box = $("difficultyInfo");
+  if(!box) return;
+
+  if(val === "basis"){
+    box.innerHTML = `
+      <strong>Basis:</strong><br>
+      klare Hinweise, eindeutige Informationen, strukturierte Aufgabenstellung.
+    `;
+  }
+
+  if(val === "vertiefung"){
+    box.innerHTML = `
+      <strong>Vertiefung:</strong><br>
+      mehrdeutige Informationen, mehrere Perspektiven, stärkere Theorie- und Reflexionsanforderungen.
+    `;
+  }
+
+  if(val === "komplex"){
+    box.innerHTML = `
+      <strong>Komplex:</strong><br>
+      widersprüchliche Informationen, Zeitdruck, Datenschutzkonflikte,
+      institutionelle Spannungen und unklare Zuständigkeiten.
+    `;
+  }
+}
+
+
+const misconceptionLibrary = {
+  generic: [
+    {
+      pattern: /(therapie|therapeut)/i,
+      feedback: "Schulsozialarbeit kann beratend und unterstützend arbeiten, ersetzt jedoch keine Psychotherapie."
+    },
+    {
+      pattern: /(faul|unmotiviert|selbst schuld|asozial)/i,
+      feedback: "Die Formulierung wirkt defizit- oder personenbezogen. Professionelle Fallarbeit beschreibt beobachtbares Verhalten statt moralischer Zuschreibungen."
+    },
+    {
+      pattern: /(einfach bestrafen|härter durchgreifen|null toleranz)/i,
+      feedback: "Sanktionen allein lösen komplexe soziale Problemlagen meist nicht. Beziehung, Kontext und Ressourcen sollten mitgedacht werden."
+    },
+    {
+      pattern: /(alle infos weitergeben|alles melden)/i,
+      feedback: "Informationsweitergabe ist an Datenschutz, Schweigepflicht und Zweckbindung gebunden."
+    }
+  ],
+
+  ali: [
+    {
+      pattern: /(schulverweis|rauswerfen)/i,
+      feedback: "Bei Schulabsentismus sollten zunächst Ursachen, Belastungen und Unterstützungswege geprüft werden."
+    },
+    {
+      pattern: /(nur eltern schuld)/i,
+      feedback: "Schulabsentismus entsteht meist multifaktoriell. Schule, Familie, Peers und Belastungen sollten gemeinsam betrachtet werden."
+    }
+  ],
+
+  lea: [
+    {
+      pattern: /(sicher misshandlung|eindeutig vernachlässigt)/i,
+      feedback: "Bei möglicher Kindeswohlgefährdung müssen Beobachtung, Einschätzung und Hypothese sorgfältig getrennt werden."
+    },
+    {
+      pattern: /(beweise sammeln gegen eltern)/i,
+      feedback: "Kinderschutz bedeutet fachliche Einschätzung und Schutzplanung, nicht Ermittlungsarbeit gegen Eltern."
+    }
+  ],
+
+  sophie: [
+    {
+      pattern: /(handy sofort wegnehmen|klasse bloßstellen)/i,
+      feedback: "Cybermobbing erfordert Schutz, Datenschutz und sensible Intervention statt öffentlicher Beschämung."
+    }
+  ],
+
+  leon: [
+    {
+      pattern: /(übertreibt|will nur aufmerksamkeit)/i,
+      feedback: "Krisenaussagen müssen ernst genommen und professionell eingeschätzt werden."
+    }
+  ]
+};
+
+function detectMisconceptions(caseKey, text){
+  const feedbacks = [];
+
+  const generic = misconceptionLibrary.generic || [];
+  generic.forEach(item => {
+    if(item.pattern.test(text)){
+      feedbacks.push(item.feedback);
+    }
+  });
+
+  const specific = misconceptionLibrary[caseKey] || [];
+  specific.forEach(item => {
+    if(item.pattern.test(text)){
+      feedbacks.push(item.feedback);
+    }
+  });
+
+  return [...new Set(feedbacks)];
+}
+
+const STORAGE_KEY = "fallarbeit_portfolio_niedersachsen_v1";
+
+function loadPortfolio(){
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+      cases: {},
+      events: [],
+      competencies: {
+        fallanalyse: 0,
+        theorie: 0,
+        dokumentation: 0,
+        evaluation: 0,
+        reflexion: 0,
+        kooperation: 0,
+        datenschutz: 0,
+        niedersachsen: 0,
+        ressourcen: 0,
+        kontrollrisiko: 0
+      }
+    };
+  } catch(e) {
+    return {
+      cases: {},
+      events: [],
+      competencies: {
+        fallanalyse: 0,
+        theorie: 0,
+        dokumentation: 0,
+        evaluation: 0,
+        reflexion: 0,
+        kooperation: 0,
+        datenschutz: 0,
+        niedersachsen: 0,
+        ressourcen: 0,
+        kontrollrisiko: 0
+      }
+    };
+  }
+}
+
+function savePortfolio(data){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function recordPortfolioEvent(type, details = {}){
+  if(!current) return;
+
+  const data = loadPortfolio();
+  const c = cases[current];
+
+  if(!data.cases[current]){
+    data.cases[current] = {
+      name: c.name,
+      area: c.area,
+      completedTasks: [],
+      reflections: [],
+      theoryNotes: [],
+      documentationScores: [],
+      decisions: []
+    };
+  }
+
+  const entry = {
+    date: new Date().toLocaleString("de-DE"),
+    caseKey: current,
+    caseName: c.name,
+    area: c.area,
+    type,
+    details
+  };
+
+  data.events.push(entry);
+
+  if(type === "task"){
+    if(!data.cases[current].completedTasks.includes(details.task)){
+      data.cases[current].completedTasks.push(details.task);
+    }
+  }
+
+  if(type === "decision"){
+    data.cases[current].decisions.push(details);
+    analyzeDecisionForCompetencies(data.competencies, details);
+  }
+
+  if(type === "reflection"){
+    data.cases[current].reflections.push(details.text || "");
+    data.competencies.reflexion += 1;
+    if(/niedersachsen|schule|jugendhilfe|kommune|träger|land/i.test(details.text || "")){
+      data.competencies.niedersachsen += 1;
+    }
+  }
+
+  if(type === "theory"){
+    data.cases[current].theoryNotes.push(details);
+    data.competencies.theorie += details.score || 1;
+    if(details.niedersachsen) data.competencies.niedersachsen += 1;
+  }
+
+  if(type === "documentation"){
+    data.cases[current].documentationScores.push(details.score || 0);
+    data.competencies.dokumentation += details.score || 1;
+    if(details.datenschutz) data.competencies.datenschutz += 1;
+    if(details.niedersachsen) data.competencies.niedersachsen += 1;
+  }
+
+  if(type === "evaluation"){
+    data.competencies.evaluation += details.score || 1;
+  }
+
+  if(type === "drag"){
+    data.competencies.fallanalyse += details.score || 1;
+  }
+
+  savePortfolio(data);
+}
+
+function analyzeDecisionForCompetencies(comp, details){
+  const label = (details.label || "").toLowerCase();
+  const text = ((details.action || "") + " " + (details.feedback || "")).toLowerCase();
+
+  if(/ressource|kontakt|beziehung|zugang|lebenswelt|beteiligung/i.test(label + " " + text)){
+    comp.ressourcen += 1;
+  }
+
+  if(/kooperation|struktur|abstimmen|rollen|schule|jugendhilfe|kommune/i.test(label + " " + text)){
+    comp.kooperation += 1;
+  }
+
+  if(/datenschutz|vertraulich|weitergabe|einwilligung/i.test(label + " " + text)){
+    comp.datenschutz += 1;
+  }
+
+  if(/niedersachsen|kommune|träger|land|jugendhilfe/i.test(label + " " + text)){
+    comp.niedersachsen += 1;
+  }
+
+  if(/kontrollierend|druck|sanktion|eskalierend|sofort/i.test(label + " " + text)){
+    comp.kontrollrisiko += 1;
+  }
+}
+
+function getPortfolioAnalysis(data){
+  const comp = data.competencies;
+  const messages = [];
+
+  if(comp.kontrollrisiko >= 3){
+    messages.push("Sie wählen häufiger kontrollierende oder eskalierende Handlungslogiken. Prüfen Sie stärker beziehungs-, ressourcen- und verfahrensorientierte Alternativen.");
+  }
+
+  if(comp.ressourcen >= 3){
+    messages.push("Ressourcenorientierung ist in Ihrem bisherigen Verlauf deutlich erkennbar.");
+  } else {
+    messages.push("Ressourcen und Schutzfaktoren könnten noch stärker berücksichtigt werden.");
+  }
+
+  if(comp.niedersachsen >= 3){
+    messages.push("Der Niedersachsenbezug wird bereits regelmäßig hergestellt.");
+  } else {
+    messages.push("Der Niedersachsenbezug sollte häufiger explizit über Schule, Jugendhilfe, Kommune, Land und freie Träger hergestellt werden.");
+  }
+
+  if(comp.datenschutz >= 2){
+    messages.push("Datenschutz und Informationsweitergabe werden sichtbar reflektiert.");
+  } else {
+    messages.push("Datenschutz, Schweigepflicht und zweckgebundene Informationsweitergabe sollten stärker einbezogen werden.");
+  }
+
+  if(comp.theorie >= 3){
+    messages.push("Theoriebezüge werden wiederholt hergestellt.");
+  } else {
+    messages.push("Theoriebezüge sollten systematischer genutzt werden: Erkenntnisgewinn, Grenze, Vergleich.");
+  }
+
+  return messages;
+}
+
+function renderPortfolio(){
+  const data = loadPortfolio();
+  const caseRows = Object.entries(data.cases).map(([key, c]) => `
+    <tr>
+      <td>${c.name}</td>
+      <td>${c.area}</td>
+      <td>${c.completedTasks.length}</td>
+      <td>${c.decisions.length}</td>
+      <td>${c.reflections.length}</td>
+    </tr>
+  `).join("");
+
+  const comp = data.competencies;
+  const max = Math.max(1, ...Object.values(comp));
+  const compBars = Object.entries(comp).map(([key, value]) => `
+    <div class="portfolio-bar-row">
+      <span>${portfolioLabel(key)}</span>
+      <div class="portfolio-bar"><div class="portfolio-fill" style="width:${Math.round(value / max * 100)}%"></div></div>
+      <strong>${value}</strong>
+    </div>
+  `).join("");
+
+  const analysis = getPortfolioAnalysis(data).map(m => `<li>${m}</li>`).join("");
+
+  $("content").innerHTML = `
+    <div class="kicker">Portfolio</div>
+    <h2>Lernportfolio und Verlaufsanalyse</h2>
+
+    <div class="info">
+      <strong>Speicherung:</strong><br>
+      Dieses Portfolio wird lokal im Browser gespeichert. Es wird nicht an einen Server übertragen.
+    </div>
+
+    <h3>Bearbeitete Fälle</h3>
+    <div style="overflow-x:auto">
+      <table class="portfolio-table">
+        <tr>
+          <th>Fall</th>
+          <th>Bereich</th>
+          <th>Aufgaben</th>
+          <th>Entscheidungen</th>
+          <th>Reflexionen</th>
+        </tr>
+        ${caseRows || `<tr><td colspan="5">Noch keine Portfolioeinträge vorhanden.</td></tr>`}
+      </table>
+    </div>
+
+    <h3>Kompetenzprofil</h3>
+    ${compBars}
+
+    <h3>Lernverlaufsanalyse</h3>
+    <ul>${analysis}</ul>
+
+    <h3>Letzte Aktivitäten</h3>
+    <ul>
+      ${data.events.slice(-8).reverse().map(e => `<li>${e.date}: ${e.caseName} · ${eventLabel(e.type)}</li>`).join("") || "<li>Noch keine Aktivitäten.</li>"}
+    </ul>
+
+    <button onclick="exportPortfolio()">Portfolio als Text exportieren</button>
+    <button class="secondary" onclick="clearPortfolio()">Portfolio löschen</button>
+    <div id="portfolioExport" class="feedback"></div>
+  `;
+}
+
+function portfolioLabel(key){
+  const labels = {
+    fallanalyse: "Fallanalyse",
+    theorie: "Theoriebezug",
+    dokumentation: "Dokumentation",
+    evaluation: "Evaluation",
+    reflexion: "Reflexion",
+    kooperation: "Kooperation",
+    datenschutz: "Datenschutz",
+    niedersachsen: "Niedersachsenbezug",
+    ressourcen: "Ressourcenorientierung",
+    kontrollrisiko: "Kontroll-/Eskalationstendenz"
+  };
+  return labels[key] || key;
+}
+
+function eventLabel(type){
+  const labels = {
+    task: "Aufgabe abgeschlossen",
+    decision: "Entscheidung getroffen",
+    reflection: "Reflexion gespeichert",
+    theory: "Theorievergleich bearbeitet",
+    documentation: "Dokumentation geprüft",
+    evaluation: "Evaluation bearbeitet",
+    drag: "Fallanalyse bearbeitet"
+  };
+  return labels[type] || type;
+}
+
+function exportPortfolio(){
+  const data = loadPortfolio();
+  const lines = [];
+  lines.push("Lernportfolio Fallarbeit · Schulsozialarbeit · Niedersachsen");
+  lines.push("Export: " + new Date().toLocaleString("de-DE"));
+  lines.push("");
+  lines.push("Kompetenzprofil:");
+  Object.entries(data.competencies).forEach(([k,v]) => lines.push("- " + portfolioLabel(k) + ": " + v));
+  lines.push("");
+  lines.push("Bearbeitete Fälle:");
+  Object.values(data.cases).forEach(c => {
+    lines.push("- " + c.name + " · " + c.area + " · Aufgaben: " + c.completedTasks.length + " · Entscheidungen: " + c.decisions.length);
+  });
+  lines.push("");
+  lines.push("Lernverlaufsanalyse:");
+  getPortfolioAnalysis(data).forEach(m => lines.push("- " + m));
+
+  const box = $("portfolioExport");
+  box.innerHTML = `<h3>Export</h3><textarea style="min-height:260px">${lines.join("\\n")}</textarea>`;
+  box.classList.add("visible");
+}
+
+function clearPortfolio(){
+  if(confirm("Portfolio wirklich löschen?")){
+    localStorage.removeItem(STORAGE_KEY);
+    renderPortfolio();
+  }
+}
+
+
+function setupAccessibility(){
+  const contrastBtn = $("contrastBtn");
+  const checkBtn = $("contrastCheckBtn");
+
+  if(contrastBtn){
+    contrastBtn.onclick = () => {
+      document.body.classList.toggle("high-contrast");
+      localStorage.setItem("fallarbeit_high_contrast", document.body.classList.contains("high-contrast") ? "1" : "0");
+    };
+  }
+
+  if(localStorage.getItem("fallarbeit_high_contrast")==="1"){
+    document.body.classList.add("high-contrast");
+  }
+
+  if(checkBtn){
+    checkBtn.onclick = showContrastCheck;
+  }
+}
+
+function luminance(hex){
+  hex = hex.replace("#","");
+  const r = parseInt(hex.substring(0,2),16)/255;
+  const g = parseInt(hex.substring(2,4),16)/255;
+  const b = parseInt(hex.substring(4,6),16)/255;
+
+  const convert = c => c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055,2.4);
+  return 0.2126*convert(r)+0.7152*convert(g)+0.0722*convert(b);
+}
+
+function contrastRatio(a,b){
+  const l1 = luminance(a);
+  const l2 = luminance(b);
+  const bright = Math.max(l1,l2);
+  const dark = Math.min(l1,l2);
+  return ((bright+0.05)/(dark+0.05)).toFixed(2);
+}
+
+function showContrastCheck(){
+  const checks = [
+    ["Fließtext auf weiß", "#111111", "#ffffff"],
+    ["Primärbutton", "#ffffff", "#2f6f6d"],
+    ["Sekundärbutton", "#244f4e", "#e8f1ef"],
+    ["Footertext", "#d9eeee", "#203536"],
+    ["Warnhinweis", "#111111", "#fff9e8"]
+  ];
+
+  const rows = checks.map(([label, fg, bg])=>{
+    const ratio = contrastRatio(fg,bg);
+    const pass = ratio >= 4.5;
+    return `<li><strong>${label}:</strong> Kontrast ${ratio}:1 · <span class="${pass ? "contrast-pass" : "contrast-warn"}">${pass ? "bestanden" : "prüfen"}</span></li>`;
+  }).join("");
+
+  const box = $("contrastResult");
+  box.innerHTML = `
+    <h3>Kontrastprüfung</h3>
+    <p>Orientierungsprüfung nach gängigem Mindestwert 4,5:1 für normalen Text.</p>
+    <ul>${rows}</ul>
+  `;
+  box.classList.add("visible");
+}
+
+setupAccessibility();
+init();
+</script></body></html>
